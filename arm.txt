@@ -1,0 +1,169 @@
+b                aaaa1010 bbbbbbbb bbbbbbbb bbbbbbbb, a:auto_cond, b:offset_branch
+bl               aaaa1011 bbbbbbbb bbbbbbbb bbbbbbbb, a:auto_cond, b:offset_branch
+bx               aaaa0001 00101111 11111111 0001bbbb, a:auto_cond, b:rn
+blx              aaaa0001 00101111 11111111 0011bbbb, a:auto_cond, b:rn
+blxi             1111101a bbbbbbbb bbbbbbbb bbbbbbbb, a:h, b:imm24
+adc              aaaa00b0 101cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+add              aaaa00b0 100cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+and              aaaa00b0 000cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+bic              aaaa00b1 110cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+cmn              aaaa00b1 0111cccc 0000dddd dddddddd, a:auto_cond, b:immediate, c:rn, d:operand2
+cmp              aaaa00b1 0101cccc 0000dddd dddddddd, a:auto_cond, b:immediate, c:rn, d:operand2
+eor              aaaa00b0 001cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+mov              aaaa00b1 101c0000 ddddeeee eeeeeeee, a:auto_cond, b:immediate, c:set_condition, d:rd, e:operand2
+movw             aaaa0011 0000bbbb ccccdddd dddddddd, a:auto_cond, c:rd, b:rn, d:operand2
+movt             aaaa0011 0100bbbb ccccdddd dddddddd, a:auto_cond, c:rd, b:rn, d:operand2
+mvn              aaaa00b1 111c0000 ddddeeee eeeeeeee, a:auto_cond, b:immediate, c:set_condition, d:rd, e:operand2
+orr              aaaa00b1 100cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+rsb              aaaa00b0 011cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+rsc              aaaa00b0 1110cccc ddddeeee eeeeeeee, a:auto_cond, b:immediate, d:rd, c:rn, e:operand2
+sbc              aaaa00b0 110cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+sub              aaaa00b0 010cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
+teq              aaaa00b1 0011cccc 0000dddd dddddddd, a:auto_cond, b:immediate, c:rn, d:operand2
+tst              aaaa00b1 0001cccc 0000dddd dddddddd, a:auto_cond, b:immediate, c:rn, d:operand2
+nop              aaaa0011 00100000 11110000 00000000, a:auto_cond
+mul              aaaa0000 0000bbbb 0000cccc 1001dddd, a:auto_cond, b:rd, d:rm, c:rs
+mla              aaaa0000 0010bbbb ccccdddd 1001eeee, a:auto_cond, b:rd, e:rm, d:rs, c:rn
+ldrb             aaaa01bc d1e1ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
+ldr              aaaa01bc d0e1ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
+strb             aaaa01bc d1e0ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
+str              aaaa01bc d0e0ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
+ldrh             aaaa000b cde1ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
+strh             aaaa000b cde0ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
+ldrd             aaaa000b cde0ffff gggghhhh 1101iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
+strd             aaaa000b cde0ffff gggghhhh 1111iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
+ldrex            aaaa0001 1001bbbb cccc1111 10011111, a:auto_cond, c:rd, b:rn
+strex            aaaa0001 1000bbbb cccc1111 1001dddd, a:auto_cond, c:rd, b:rn, d:rm
+ldrshi           aaaa000b c1d1eeee ffffgggg 1111hhhh, a:auto_cond, f:rd, e:rn, h:rm, g:imm4h, b:prepostindex, c:updown, d:writeback
+rev              aaaa0110 10111111 bbbb1111 0011cccc, a:auto_cond, b:rd, c:rm
+clz              aaaa0001 01101111 bbbb1111 0001cccc, a:auto_cond, b:rd, c:rm
+ldm              aaaa100b cde1ffff gggggggg gggggggg, a:auto_cond, f:rn, g:registers, b:prepostindex, c:updown, e:writeback, d:psr
+stm              aaaa100b cde0ffff gggggggg gggggggg, a:auto_cond, f:rn, g:registers, b:prepostindex, c:updown, e:writeback, d:psr
+svc              aaaa1111 bbbbbbbb bbbbbbbb bbbbbbbb, a:auto_cond, b:comment
+pli              11110110 a101bbbb 1111cccc cdd0eeee, a:updown, b:rn, c:imm5, d:type, e:rm
+pldi             11110101 ab01cccc 1111dddd dddddddd, a:updown, b:read_only, c:rn, d:imm12
+pld              11110111 ab01cccc 1111dddd dddddddd, a:updown, b:read_only, c:rn, d:imm12
+plii             11110100 a101bbbb 1111cccc cccccccc, a:updown, b:rn, c:imm12
+vstm_d           aaaa110b cde0ffff gggg1011 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
+vstm_s           aaaa110b cde0ffff gggg1010 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
+vldm_d           aaaa110b cde1ffff gggg1011 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
+vldm_s           aaaa110b cde1ffff gggg1010 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
+vstr_d           aaaa1101 bc00dddd eeee1011 ffffffff, a:auto_cond, b:upwards, c:d, d:rn, e:vd, f:imm8
+vstr_s           aaaa1101 bc00dddd eeee1010 ffffffff, a:auto_cond, b:upwards, c:d, d:rn, e:vd, f:imm8
+vldr_d           aaaa1101 bc01dddd eeee1011 ffffffff, a:auto_cond, b:upwards, c:d, d:rn, e:vd, f:imm8
+vldr_s           aaaa1101 bc01dddd eeee1010 ffffffff, a:auto_cond, b:upwards, c:d, d:rn, e:vd, f:imm8
+stc              aaaa110b cde0ffff gggghhhh iiiiiiii, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:opcode, i:imm8
+mrc              aaaa1110 bbb1cccc ddddeeee fff1gggg, a:auto_cond, b:opc1, c:crn, d:rd, e:coproc, f:opc2, g:crm
+mcr              aaaa1110 bbb0cccc ddddeeee fff1gggg, a:auto_cond, b:opc1, c:crn, d:rd, e:coproc, f:opc2, g:crm
+cdp              aaaa1110 bbbbcccc ddddeeee fff0gggg, a:auto_cond, b:opc1, c:crn, d:crd, e:coproc, f:opc2, g:crm
+umlal            aaaa0000 101bcccc ddddeeee 1001ffff, a:auto_cond, b:set_condition, c:rdhi, d:rdlo, e:rm, f:rn
+umull            aaaa0000 100bcccc ddddeeee 1001ffff, a:auto_cond, b:set_condition, c:rdhi, d:rdlo, e:rm, f:rn
+smull            aaaa0000 110bcccc ddddeeee 1001ffff, a:auto_cond, b:set_condition, c:rdhi, d:rdlo, e:rm, f:rn
+smlal            aaaa0000 111bcccc ddddeeee 1001ffff, a:auto_cond, b:set_condition, c:rdhi, d:rdlo, e:rm, f:rn
+vmuli            1111001a 0bccdddd eeee1001 fgh1iiii, a:opcode, c:size, g:q, b:d, e:vd, f:n, d:vn, h:m, i:vm
+vmulli           1111001a 1bccdddd eeee11f0 g0h0iiii, a:opcode, f:opcode4, c:size, b:d, e:vd, g:n, d:vn, h:m, i:vm
+vraddhn          11110011 1abbcccc dddd0100 e0f0gggg, b:size, a:d, d:vd, e:n, c:vn, f:m, g:vm
+vqadd            1111001a 0bccdddd eeee0000 fgh1iiii, a:opcode, c:size, g:q, b:d, e:vd, f:n, d:vn, h:m, i:vm
+vorr             11110010 0a10bbbb cccc0001 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
+vsubi            11110011 0abbcccc dddd1000 efg0hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm
+vqdmulh          11110010 0abbcccc dddd1011 efg0hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm
+vqdmulhs         1111001a 1bccdddd eeee1100 f1g0hhhh, a:opcode, c:size, b:d, e:vd, f:n, d:vn, g:m, h:vm
+vaddi            11110010 0abbcccc dddd1000 efg0hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm
+vmlsl_s          11110010 1abbcccc dddd0110 e1f0gggg, b:size, a:d, d:vd, e:n, c:vn, f:m, g:vm
+vmlal_s          11110010 1abbcccc dddd0010 e1f0gggg, b:size, a:d, d:vd, e:n, c:vn, f:m, g:vm
+vmul_s           1111001a 1bccdddd eeee100f g1h0iiii, a:opcode, f:opcode5, c:size, b:d, e:vd, g:n, d:vn, h:m, i:vm
+vmull_s          1111001a 1bccdddd eeee1010 f1g0hhhh, a:opcode, c:size, b:d, e:vd, f:n, d:vn, g:m, h:vm
+vldx_m           11110100 0a10bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
+vldx_s_o         11110100 1a10bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
+vldx_s_a         11110100 1a10bbbb cccc11dd eeeeffff, d:opcode4, e:params, a:d, c:vd, b:rn, f:rm
+vstx_m           11110100 0a00bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
+vstx_s_o         11110100 1a00bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
+vstx_s_a         11110100 1a00bbbb cccc11dd eeeeffff, d:opcode4, e:params, a:d, c:vd, b:rn, f:rm
+vuzp             11110011 1a11bb10 cccc0001 0de0ffff, b:size, a:d, c:vd, d:q, e:m, f:vm
+vzip             11110011 1a11bb10 cccc0001 1de0ffff, b:size, a:d, c:vd, d:q, e:m, f:vm
+vmvn             11110011 1a11bb00 cccc0101 1de0ffff, b:size, a:d, c:vd, d:q, e:m, f:vm
+vtrn             11110011 1a11bb10 cccc0000 1de0ffff, b:size, a:d, c:vd, d:q, e:m, f:vm
+vswp             11110011 1a11bb10 cccc0000 0de0ffff, b:size, a:d, c:vd, d:q, e:m, f:vm
+vqmovun          11110011 1a11bb10 cccc0010 def0gggg, d:opcode5, b:size, a:d, c:vd, e:q, f:m, g:vm
+vrshr            1111001a 1bcccccc dddd0010 efg1hhhh, a:u, b:d, d:vd, f:q, g:m, h:vm, e:l, c:imm6
+vrshrn           11110010 1abbbbbb cccc1000 01d1eeee, a:d, c:vd, d:m, e:vm, b:imm6
+vrsra            1111001a 1bcccccc dddd0011 efg1hhhh, a:u, b:d, d:vd, f:q, g:m, h:vm, e:l, c:imm6
+vshli            11110010 1abbbbbb cccc0101 def1gggg, a:d, c:vd, e:q, f:m, g:vm, d:l, b:imm6
+vshll            1111001a 1bcccccc dddd1010 00e1ffff, a:u, b:d, d:vd, e:m, f:vm, c:imm6
+vshr             1111001a 1bcccccc dddd0000 efg1hhhh, a:u, b:d, d:vd, f:q, g:m, h:vm, e:l, c:imm6
+vshrn            11110010 1abbbbbb cccc1000 00d1eeee, a:d, c:vd, d:m, e:vm, b:imm6
+vsli             11110011 1abbbbbb cccc0101 def1gggg, a:d, c:vd, e:q, f:m, g:vm, d:l, b:imm6
+vsra             1111001a 1bcccccc dddd0001 efg1hhhh, a:u, b:d, d:vd, f:q, g:m, h:vm, e:l, c:imm6
+vsri             11110011 1abbbbbb cccc0100 def1gggg, a:d, c:vd, e:q, f:m, g:vm, d:l, b:imm6
+vmvni            1111001a 1b000ccc ddddeeee 0f11gggg, e:cmode, b:d, d:vd, f:q, a:i, c:imm3, g:imm4
+vmovi_i          1111001a 1b000ccc ddddeeee 0fg1hhhh, e:cmode, b:d, d:vd, f:q, a:i, c:imm3, h:imm4, g:op
+vmov_f           aaaa1110 1b110000 cccc101d 01e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
+vcvt_f           aaaa1110 1b111ccc dddd101e f1g0hhhh, a:auto_cond, b:d, c:opc2, d:vd, e:sz, f:op, g:m, h:vm
+vcmp             aaaa1110 1b110100 cccc101d 01e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
+vcmpe            aaaa1110 1b110100 cccc101d 11e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
+vcmp_zero        aaaa1110 1b110101 cccc101d 01e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
+vcmpe_zero       aaaa1110 1b110101 cccc101d 11e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
+mrs              aaaa0001 00001111 bbbb0000 00000000, a:auto_cond, b:rd
+msr              aaaa0001 0010bbbb 11110000 0000cccc, a:auto_cond, b:mask, c:rn
+msri             aaaa0011 0010bb00 1111cccc cccccccc, a:auto_cond, b:mask, c:imm12
+udiv             aaaa0111 0011bbbb 1111cccc 0001dddd, a:auto_cond, b:rd, d:rn, c:rm
+sdiv             aaaa0111 0001bbbb 1111cccc 0001dddd, a:auto_cond, b:rd, d:rn, c:rm
+dmb              11110101 01111111 11110000 0101aaaa, a:option
+dsb              11110101 01111111 11110000 0100aaaa, a:option
+isb              11110101 01111111 11110000 0110aaaa, a:option
+uxtab            aaaa0110 1110bbbb ccccdd00 0111eeee, a:auto_cond, c:rd, b:rn, e:rm, d:rotate
+uxtab16          aaaa0110 1100bbbb ccccdd00 0111eeee, a:auto_cond, c:rd, b:rn, e:rm, d:rotate
+uxtah            aaaa0110 1111bbbb ccccdd00 0111eeee, a:auto_cond, c:rd, b:rn, e:rm, d:rotate
+uxtb             aaaa0110 11101111 bbbbcc00 0111dddd, a:auto_cond, b:rd, d:rm, c:rotate
+uxtb16           aaaa0110 11001111 bbbbcc00 0111dddd, a:auto_cond, b:rd, d:rm, c:rotate
+uxth             aaaa0110 11111111 bbbbcc00 0111dddd, a:auto_cond, b:rd, d:rm, c:rotate
+vmul_f32         aaaa1110 0b10cccc dddd1010 e0f0gggg, a:auto_cond, b:d, c:vn, d:vd, e:n, f:m, g:vm
+vmul_f64         aaaa1110 0b10cccc dddd1011 e0f0gggg, a:auto_cond, b:d, c:vn, d:vd, e:n, f:m, g:vm
+vmls_f32         aaaa1110 0b00cccc dddd1010 e1f0gggg, a:auto_cond, b:d, c:vn, d:vd, e:n, f:m, g:vm
+vmls_f64         aaaa1110 0b00cccc dddd1011 e1f0gggg, a:auto_cond, b:d, c:vn, d:vd, e:n, f:m, g:vm
+vmla_f32         aaaa1110 0b00cccc dddd1010 e0f0gggg, a:auto_cond, b:d, c:vn, d:vd, e:n, f:m, g:vm
+vmla_f64         aaaa1110 0b00cccc dddd1011 e0f0gggg, a:auto_cond, b:d, c:vn, d:vd, e:n, f:m, g:vm
+vmov_arm_s       aaaa1110 000bcccc dddd1010 e0010000, a:auto_cond, b:op, c:vn, d:rd, e:n
+vmov_scal_arm    aaaa1110 0bb0cccc ffff1011 dee10000, a:auto_cond, b:opc1, e:opc2, d:d, c:vd, f:rt
+vmov_arm_scal    aaaa1110 uee1bbbb cccc1011 ndd10000, a:auto_cond, u:u, e:opc1, d:opc2, c:rt, n:n, b:vn
+vmovi_f32        aaaa1110 1b11cccc dddd1010 0000eeee, a:auto_cond, b:d, d:vd, c:imm4h, e:imm4l
+vmovi_f64        aaaa1110 1b11cccc dddd1011 0000eeee, a:auto_cond, b:d, d:vd, c:imm4h, e:imm4l
+vmovi_d          1111001i 1d000aaa bbbbcccc 00e1gggg, d:d, b:vd, e:op, c:cmode, i:i, a:imm3, g:imm4
+vmovi_q          1111001i 1d000aaa bbbbcccc 01e1gggg, d:d, b:vd, e:op, c:cmode, i:i, a:imm3, g:imm4
+vmrs             aaaa1110 11110001 bbbb1010 00010000, a:auto_cond, b:rt
+vmov_2arm_d      aaaa1100 010bcccc dddd1011 00e1ffff, a:auto_cond, b:op, c:rt2, d:rt, e:m, f:vm
+vrev             11110011 1d11ss00 aaaa000b bqm0cccc, s:size, q:q, b:opcode, d:d, a:vd, m:m, c:vm
+vpadd            11110010 0dssaaaa bbbb1011 n0m1cccc, s:size, d:d, b:vd, n:n, a:vn, m:m, c:vm
+vpadd_f32        11110011 0d00aaaa bbbb1101 n0m0cccc, d:d, b:vd, n:n, a:vn, m:m, c:vm
+
+branch                    aaaa101b cccccccc cccccccc cccccccc, a:auto_cond, b:link, c:offset_branch
+bx_t                      aaaa0001 00101111 11111111 00b1cccc, a:auto_cond, b:link, c:rn
+blxi_t                    1111101a bbbbbbbb bbbbbbbb bbbbbbbb, a:h, b:imm24
+data_proc                 aaaa00bc cccdeeee ffffgggg gggggggg, a:auto_cond, b:immediate, c:opcode, d:set_condition, f:rd, e:rn, g:operand2
+multiply                  aaaa0000 00bcdddd eeeeffff 1001gggg, a:auto_cond, b:accumulate, c:set_condition, d:rd, g:rm, f:rs, e:rn
+s_data_transfer           aaaa01bc defghhhh iiiijjjj jjjjjjjj, a:auto_cond, g:loadstore, b:immediate, e:byteword, i:rd, h:rn, j:offset, c:prepostindex, d:updown, f:writeback
+h_data_transfer           aaaabbbc defghhhh iiiijjjj kkkkllll, a:auto_cond, b:opcode, g:size, k:opcode2, e:immediate, i:rd, h:rn, l:rm, j:imm4h, c:prepostindex, d:updown, f:writeback
+b_data_transfer           aaaa100b cdefgggg hhhhhhhh hhhhhhhh, a:auto_cond, f:loadstore, g:rn, h:registers, b:prepostindex, c:updown, e:writeback, d:psr
+svc_t                     aaaa1111 bbbbbbbb bbbbbbbb bbbbbbbb, a:auto_cond, b:comment
+mem_hints_pli             1111aaaa bcccdddd 1111eeee eff0gggg, a:opcode1, b:updown, c:opcode2, d:rn, e:imm5, f:type, g:rm
+mem_hints_pld             1111aaaa bcddeeee 1111ffff ffffffff, a:opcode1, b:updown, c:read_only, d:opcode2, e:rn, f:imm12
+vfp_ldm_stm               aaaa110b cdefgggg hhhhiiii jjjjjjjj, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:load_store, g:rn, h:vd, i:opcode, j:imm8
+vfp_vmrs                  aaaa1110 11110001 bbbb1010 00010000, a:auto_cond, b:rt
+coproc_trans              aaaa1110 bbbcdddd eeeeffff ggg1hhhh, a:auto_cond, b:opc1, c:load_store, d:crn, e:rd, f:coproc, g:opc2, h:crm
+coproc_dp                 aaaa1110 bbbbcccc ddddeeee fff0gggg, a:auto_cond, b:opc1, c:crn, d:crd, e:coproc, f:opc2, g:crm
+dsp_long_res              aaaabbbb bbbcdddd eeeeffff gghhiiii, a:auto_cond, b:opcode, c:set_condition, d:rdhi, e:rdlo, f:rm, g:opcode2, h:setting, i:rn
+vops                      1111001a bcddeeee ffffgghi jklmnnnn, a:opcode, b:opcode2, g:opcode3, h:opcode4, i:opcode5, m:opcode6, d:size, k:q, c:d, f:vd, j:n, e:vn, l:m, n:vm
+v_trans_mult              11110100 abccdddd eeeeffgg hhhhiiii, a:opcode, c:opcode2, f:opcode3, g:opcode4, h:params, b:d, e:vd, d:rn, i:rm
+v_ops_2reg                11110011 abccddee ffffgggg hij0kkkk, a:opcode, c:opcode2, e:opcode3, g:opcode4, h:opcode5, d:size, b:d, f:vd, i:q, j:m, k:vm
+v_ops_imm6                1111001a 1bcccccc ddddeeee fghijjjj, e:opcode, a:u, b:d, d:vd, g:q, h:m, j:vm, f:l, c:imm6, i:f3
+v_ops_1reg_mod_imm        1111001a bcdddeee ffffgggg hij1kkkk, b:opcode, d:opcode2, h:opcode3, g:cmode, c:d, f:vd, i:q, a:i, e:imm3, k:imm4, j:op
+vfp_data_proc             aaaa1110 1b110ccc dddd101e f1g0hhhh, a:auto_cond, b:d, c:opc2, d:vd, e:sz, f:op, g:m, h:vm
+cpsr_trans_reg            aaaa0001 00bbccdd eeee0000 0000ffff, a:auto_cond, b:opcode, c:mask, d:f2, e:rd, f:rn
+cpsr_trans_imm            aaaa0011 0010bb00 1111cccc cccccccc, a:auto_cond, b:mask, c:imm12
+divide                    aaaabbbb bbbbcccc 1111dddd 0001eeee, a:auto_cond, b:opcode, c:rd, e:rn, d:rm
+sync                      11110101 01111111 11110000 aaaabbbb, a:opcode, b:option
+extend                    aaaabbbb bbbbcccc ddddee00 0111ffff, a:auto_cond, b:opcode, d:rd, c:rn, f:rm, e:rotate
+vfp_3reg                  aaaabbbb bcddeeee ffffgggh i0j0kkkk, a:auto_cond, b:opcode, c:d, d:opcode2, e:vn, f:vd, g:opcode3, h:sz, i:n, j:m, k:vm
+trans_arm_vfp             aaaa1110 000bcccc ddddeeee fgh1iiii, a:auto_cond, b:op, c:vn, d:rd, e:opcode, f:n, g:f3, h:m, i:f5
+vfp_imm8_1reg             aaaa1110 1b11cccc ddddeeee 0000ffff, a:auto_cond, e:opcode, b:d, d:vd, c:imm4h, f:imm4l
+vfp_trans_2arm_reg        aaaa1100 bbbcdddd eeee1011 00f1gggg, a:auto_cond, b:opcode, c:op, d:rt2, e:rt, f:m, g:vm
