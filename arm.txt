@@ -136,7 +136,7 @@ vrev             11110011 1d11ss00 aaaa000b bqm0cccc, s:size, q:q, b:opcode, d:d
 vpadd            11110010 0dssaaaa bbbb1011 n0m1cccc, s:size, d:d, b:vd, n:n, a:vn, m:m, c:vm
 vpadd_f32        11110011 0d00aaaa bbbb1101 n0m0cccc, d:d, b:vd, n:n, a:vn, m:m, c:vm
 
-branch                    aaaa101b cccccccc cccccccc cccccccc, a:auto_cond, b:link, c:offset_branch
+br                        aaaa101b cccccccc cccccccc cccccccc, a:auto_cond, b:link, c:offset_branch
 bx_t                      aaaa0001 00101111 11111111 00b1cccc, a:auto_cond, b:link, c:rn
 blxi_t                    1111101a bbbbbbbb bbbbbbbb bbbbbbbb, a:h, b:imm24
 data_proc                 aaaa00bc cccdeeee ffffgggg gggggggg, a:auto_cond, b:immediate, c:opcode, d:set_condition, f:rd, e:rn, g:operand2
