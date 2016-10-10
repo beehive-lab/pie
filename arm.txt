@@ -104,7 +104,7 @@ vcmpe            aaaa1110 1b110100 cccc101d 11e0ffff, a:auto_cond, b:d, c:vd, d:
 vcmp_zero        aaaa1110 1b110101 cccc101d 01e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
 vcmpe_zero       aaaa1110 1b110101 cccc101d 11e0ffff, a:auto_cond, b:d, c:vd, d:sz, e:m, f:vm
 mrs              aaaa0001 00001111 bbbb0000 00000000, a:auto_cond, b:rd
-msr              aaaa0001 0010bbbb 11110000 0000cccc, a:auto_cond, b:mask, c:rn
+msr              aaaa0001 0010bb00 11110000 0000cccc, a:auto_cond, c:rn, b:mask
 msri             aaaa0011 0010bb00 1111cccc cccccccc, a:auto_cond, b:mask, c:imm12
 udiv             aaaa0111 0011bbbb 1111cccc 0001dddd, a:auto_cond, b:rd, d:rn, c:rm
 sdiv             aaaa0111 0001bbbb 1111cccc 0001dddd, a:auto_cond, b:rd, d:rn, c:rm

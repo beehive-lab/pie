@@ -214,8 +214,8 @@ clrex32          11110011 10111111 10001111 0010aaaa, a:option
 dsb32            11110011 10111111 10001111 0100aaaa, a:option
 dmb32            11110011 10111111 10001111 0101aaaa, a:option
 isb32            11110011 10111111 10001111 0110aaaa, a:option
-msr32            11110011 100abbbb 1000cccc 00000000, a:s_or_c, b:rn, c:rd
-mrs32            11110011 111a1111 1000bbbb 00000000, a:s_or_c, b:rd
+msr32            11110011 1000bbbb 1000cc00 00000000, b:rn, c:mask
+mrs32            11110011 11101111 1000aaaa 00000000, a:rd
 ldrd32           1110100a b1c1dddd eeeeffff gggggggg, a:pre_index, b:upwards, c:writeback, d:rn, e:rt, f:rd, g:imm8
 strd32           1110100a b1c0dddd eeeeffff gggggggg, a:pre_index, b:upwards, c:writeback, d:rn, e:rt, f:rd, g:imm8
 ldrex32          11101000 0101aaaa bbbb1111 cccccccc, a:rn, b:rt, c:imm8
