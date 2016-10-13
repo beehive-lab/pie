@@ -356,6 +356,9 @@ vext32           11101111 1a11bbbb ccccdddd efg0hhhh, a:d, b:vn, c:vd, d:imm4, e
 vtst32           11101111 0dssaaaa bbbb1000 nqm1cccc, s:size, q:regs, d:d, b:vd, n:n, a:vn, m:m, c:vm
 vrshl32          111u1111 0dssaaaa bbbb0101 nqm0cccc, u:upwards, d:d, s:size, a:vn, b:vd, n:n, q:q, m:m, c:vm
 vrshr32          111u1111 1dssaaaa bbbb0010 nqm1cccc, u:upwards, d:d, s:size, a:vn, b:vd, n:n, q:q, m:m, c:vm
+vfma_v32         11101111 0a00bbbb cccc1100 nqm1dddd, a:d, b:vn, c:vd, n:n, q:q, m:m, d:vm
+vfma_s32         11101110 1a10bbbb cccc101s n0m0dddd, a:d, b:vn, c:vd, s:sz, n:n, m:m, d:vm
+vsel32           11111110 0abbcccc dddd101s n0m0eeee, a:d, b:cc, c:vn, d:vd, n:n, m:m
 
 shift_i_mov_16            000aabbb bbcccddd, a:opcode, b:imm5, c:rm, d:rd
 add_sub_16                000110ab bbcccddd, a:opcode, b:rm, c:rn, d:rd
