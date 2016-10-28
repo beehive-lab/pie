@@ -8,6 +8,7 @@ LDFLAGS=-Wl,-z,execstack
 all:
 	make ARCH=arm pie
 	make ARCH=thumb pie
+	make ARCH=a64 pie
 
 pie: pie-$(ARCH)-decoder.o pie-$(ARCH)-encoder.o pie-$(ARCH)-field-decoder.o
 
@@ -21,5 +22,5 @@ pie-$(ARCH)-%.c: generate_%.rb $(ARCH).txt
 	ruby $< $(ARCH) > $@
 
 clean:
-	rm -f *.o pie-arm-*.h pie-thumb-*.h pie-*.c
+	rm -f *.o pie-arm-*.h pie-thumb-*.h pie-a64-*.h pie-*.c
 
