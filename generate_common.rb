@@ -31,7 +31,8 @@ def process_file(filename, insts_only = false)
   insts = []
 
   File.readlines(filename).each do |line|
-    if line.strip.empty?
+    line.strip!
+    if line.empty?
       break if insts_only
       next
     end
