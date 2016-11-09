@@ -36,6 +36,7 @@ def process_file(filename, insts_only = false)
       break if insts_only
       next
     end
+    next if line[0] == '#'
     line = line.split(/[, ]+/)
     
     inst = Hash.new
