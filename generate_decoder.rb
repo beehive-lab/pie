@@ -48,21 +48,59 @@ def generate_header(insts, inst_len)
   puts "#endif"
 end
 
-def build_tree(instructions, bit)
+def select_bit(instructions, allowed_bits)
+  bit = 0
+  selected_bit = -1
+  selected_bit_count = 0
+
+  while (allowed_bits > 0)
+    cur_bit_mask = (0x80000000 >> bit)
+
+    if ((allowed_bits & cur_bit_mask) != 0)
+      count = 0
+      instructions.each do |instruction|
+        set_bits = instruction[:bitmask_set_bits]
+        count += 1 if ((set_bits & cur_bit_mask) != 0)
+      end
+      if (count > selected_bit_count)
+        selected_bit = bit
+        selected_bit_count = count
+      end
+    end
+
+    allowed_bits &= ~cur_bit_mask
+    bit += 1
+  end
+
+  return selected_bit
+end
+
+def build_tree(instructions, remaining_bits, var_inst_len)
   if (instructions.size == 0)
     return nil
   end
-  
-  if (instructions.size == 1 and instructions[0][:bitmap].rindex(/0|1/) < bit)
+
+  if (instructions.size == 1 and ((instructions[0][:bitmask_set_bits] & remaining_bits) == 0))
     node = Node.new
-    node.depth = bit
     node.instruction = instructions[0]
     return node
   end
 
   progress = false
-  max_word_length = get_max_inst_len(instructions)
-  while (bit < max_word_length and !progress)
+  bit = -1
+  if (var_inst_len)
+    if ((remaining_bits & 0xFFFF0000) != 0)
+      bit = select_bit(instructions, remaining_bits & 0xFFFF0000)
+    end
+
+    if bit < 0
+      bit = select_bit(instructions, remaining_bits & 0xFFFF)
+    end
+  else
+    bit = select_bit(instructions, remaining_bits)
+  end
+
+  if (bit >= 0)
     left = []
     right = []
   
@@ -82,8 +120,6 @@ def build_tree(instructions, bit)
         abort "Unknown bit value in bit #{bit} in " + instruction[:bitmap] + " in " + instruction[:name]
       end
     end
-    
-    bit += 1
   end
   
   node = Node.new
@@ -105,8 +141,9 @@ def build_tree(instructions, bit)
     return node
   end
 
-  node.left =  build_tree(left, bit)
-  node.right = build_tree(right, bit)
+  remaining_bits &= ~(0x80000000 >> bit)
+  node.left =  build_tree(left, remaining_bits, var_inst_len)
+  node.right = build_tree(right, remaining_bits, var_inst_len)
   return node
 end
 
@@ -129,12 +166,12 @@ def generate_c(node, depth, def_inst_width, sub)
     return
   end
   
-  if ((node.depth - sub) > def_inst_width)
+  if ((node.depth - sub) >= def_inst_width)
     puts "instruction = *(++address);"
     sub += def_inst_width
     indent(depth)
   end
-  puts "if ((instruction & (1 << #{(def_inst_width - (node.depth - sub))})) == 0) {"
+  puts "if ((instruction & (1 << #{(def_inst_width - (node.depth - sub) -1)})) == 0) {"
   generate_c(node.left, depth+1, def_inst_width, sub)
   indent(depth)
   puts "} else {"
@@ -144,12 +181,28 @@ def generate_c(node, depth, def_inst_width, sub)
 end
 
 def generate_decoder(insts, inst_len)
+  max_word_length = get_max_inst_len(insts)
+  if (inst_len != max_word_length && inst_len*2 != max_word_length)
+    abort "Unsupported configuration"
+  end
+  var_inst_len = (inst_len != max_word_length)
+
+  insts.each do |inst|
+    inst[:bitmask_set_bits] = inst[:bitmap].gsub('0','1').gsub(/[a-z]/, '0').to_i(2)
+    inst[:bitmask_value] = inst[:bitmap].gsub(/[a-z]/, '0').to_i(2)
+
+    if (inst[:bitmap].size < max_word_length)
+      inst[:bitmask_set_bits] = inst[:bitmask_set_bits] << inst_len
+      inst[:bitmask_value] = inst[:bitmask_set_bits] << inst_len
+    end
+  end
+
   c_ptr = inst_len_to_cptr(inst_len)
   puts "#include \"pie-#{ARGV[0]}-decoder.h\"\n\n"
   generate_f_prot(insts, c_ptr)
   puts " {"
   puts "  #{c_ptr} instruction = *address;"
-  tree = build_tree(insts, 0)
+  tree = build_tree(insts, (1 << max_word_length) - 1, var_inst_len)
   generate_c(tree, 0, inst_len, 0)
   puts "}"
 end
