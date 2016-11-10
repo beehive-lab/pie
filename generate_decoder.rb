@@ -59,26 +59,7 @@ def build_tree(instructions, bit)
     node.instruction = instructions[0]
     return node
   end
-  
-  #terminate after scanning the whole instruction word
-  if (bit >= instructions[0][:bitmap].size)
-    most_specific = 0
-    i = nil
-    instructions.each do |instruction|
-      count = instruction[:bitmap].count("01")
-      if count > most_specific
-        most_specific = count
-        i = instruction
-      end
-    end
-    
-    node = Node.new
-    node.depth = bit
-    
-    node.instruction = i
-    return node
-  end
-  
+
   progress = false
   max_word_length = get_max_inst_len(instructions)
   while (bit < max_word_length and !progress)
@@ -107,6 +88,23 @@ def build_tree(instructions, bit)
   
   node = Node.new
   node.depth = bit
+
+  #terminate after scanning the whole instruction word
+  unless (progress)
+    most_specific = 0
+    i = nil
+    instructions.each do |instruction|
+      count = instruction[:bitmap].count("01")
+      if count > most_specific
+        most_specific = count
+        i = instruction
+      end
+    end
+
+    node.instruction = i
+    return node
+  end
+
   node.left =  build_tree(left, bit)
   node.right = build_tree(right, bit)
   return node
