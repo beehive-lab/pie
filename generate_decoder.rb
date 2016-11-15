@@ -183,7 +183,7 @@ end
 def generate_decoder(insts, inst_len)
   max_word_length = get_max_inst_len(insts)
   if (inst_len != max_word_length && inst_len*2 != max_word_length)
-    abort "Unsupported configuration"
+    abort "Unsupported configuration (#{inst_len}, #{max_word_length})"
   end
   var_inst_len = (inst_len != max_word_length)
 
