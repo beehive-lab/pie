@@ -180,12 +180,73 @@ def generate_c(node, depth, def_inst_width, sub)
   puts "}"
 end
 
-def generate_decoder(insts, inst_len)
-  max_word_length = get_max_inst_len(insts)
+def get_field_width(inst, field_label)
+  return inst[:bitmap].count(field_label)
+end
+
+def inst_set_field(inst, field_label, field_width, val)
+  index = -1
+  while (index = inst[:bitmap].index(field_label, index + 1))
+    field_width -= 1
+    inst[:bitmap][index] = ((val >> field_width) & 1).to_s(2);
+  end
+end
+
+def handle_cond_field(inst)
+  insts = []
+  return insts unless inst[:fields]
+
+  inst[:fields].each do |field_label, field|
+    if field[:cond]
+      field_width = get_field_width(inst, field_label)
+      (0...(1 << field_width)).each do |value|
+        is_valid = false
+        if field[:cond] == :diff && !field[:cond_vals].include?(value)
+          is_valid = true
+        end
+        if field[:cond] == :eq && field[:cond_vals].include?(value)
+          is_valid = true
+        end
+
+        if is_valid
+          new_inst = inst.dup
+          new_inst[:bitmap] = inst[:bitmap].dup
+          inst_set_field(new_inst, field_label, field_width, value)
+          insts.push(new_inst)
+        end
+      end
+      field.delete(:cond)
+      field.delete(:cond_vals)
+    end
+  end
+
+  insts.each do |new_inst|
+    t_insts = handle_cond_field(new_inst)
+    if t_insts.size > 0
+      insts.delete(new_inst)
+      insts.concat(t_insts)
+    end
+  end
+
+  return insts
+end
+
+def generate_decoder(raw_insts, inst_len)
+  max_word_length = get_max_inst_len(raw_insts)
   if (inst_len != max_word_length && inst_len*2 != max_word_length)
     abort "Unsupported configuration (#{inst_len}, #{max_word_length})"
   end
   var_inst_len = (inst_len != max_word_length)
+
+  insts = []
+  raw_insts.each do |inst|
+    new_insts = handle_cond_field(inst)
+    if new_insts.size > 0
+      insts.concat(new_insts)
+    else
+      insts.push(inst)
+    end
+  end
 
   insts.each do |inst|
     inst[:bitmask_set_bits] = inst[:bitmap].gsub('0','1').gsub(/[a-z]/, '0').to_i(2)

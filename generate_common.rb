@@ -52,7 +52,20 @@ def process_file(filename, insts_only = false)
     inst[:fields] = {}
     (i...line.size).each do |i|
       field = line[i].split(':')
-      inst[:fields][field[0]] = field[1].strip
+      inst[:fields][field[0]] = {}
+      inst[:fields][field[0]][:name] = field[1].strip
+      if field[2]
+        case field[2]
+        when "!"
+          cond = :diff
+        when "="
+          cond = :eq
+        else
+          abort "Unsupported condition: #{field[2][0]} on line: #{line}"
+        end
+        inst[:fields][field[0]][:cond] = cond
+        inst[:fields][field[0]][:cond_vals] = field[3..-1].map {|v| v.to_i(2)}
+      end
     end
  
     insts.push inst

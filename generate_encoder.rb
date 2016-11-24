@@ -23,7 +23,7 @@ require './generate_common.rb'
 
 def has_cond_field(inst)
   inst[:fields].each_pair do |field_label, field|
-    return true if field == "auto_cond"
+    return true if field[:name] == "auto_cond"
   end
   return false
 end
@@ -35,7 +35,7 @@ def generate_f_prot(inst, inst_len, cond)
   prot += "\t#{inst_len_to_cptr(inst_len)} **address"
 
   inst[:fields].each_pair do |field_label, field|
-    prot += ",\n\tunsigned int #{field}" unless (field == "auto_cond" && !cond)
+    prot += ",\n\tunsigned int #{field[:name]}" unless (field[:name] == "auto_cond" && !cond)
   end
 
   prot += "\n)"
@@ -52,10 +52,10 @@ def generate_f_body(inst, def_inst_len, cond)
   body += fixed_fields
 
   inst[:fields].each_pair do |label, field|
-    if field == "auto_cond" and !cond
+    if field[:name] == "auto_cond" and !cond
       body += " | (14 << #{get_field_shift(inst[:bitmap], label)})"
     else
-      body += " | ((#{field} & #{get_field_mask(inst[:bitmap], label)}) << #{get_field_shift(inst[:bitmap], label)})"
+      body += " | ((#{field[:name]} & #{get_field_mask(inst[:bitmap], label)}) << #{get_field_shift(inst[:bitmap], label)})"
     end
   end
 

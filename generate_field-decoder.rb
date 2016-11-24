@@ -27,8 +27,8 @@ def generate_f_prot(inst, inst_len)
   prot += "\t#{inst_len_to_cptr(inst_len)} *address"
 
   inst[:fields].each_pair do |field_label, field|
-    next if field == "auto_cond"
-    prot += ",\n\tunsigned int *#{field}"
+    next if field[:name] == "auto_cond"
+    prot += ",\n\tunsigned int *#{field[:name]}"
   end
 
   prot += ")"
@@ -48,10 +48,10 @@ def generate_f_body(inst, def_inst_len)
   end
 
   inst[:fields].each_pair do |label, field|
-    next if field == "auto_cond"
+    next if field[:name] == "auto_cond"
     shift = get_field_shift(inst[:bitmap], label)
     mask = get_field_mask(inst[:bitmap], label)
-    body += "\t*#{field} = (instruction >> #{shift}) & #{mask};\n"
+    body += "\t*#{field[:name]} = (instruction >> #{shift}) & #{mask};\n"
   end
 
   body +=  "}"
@@ -62,7 +62,7 @@ end
 def generate_field_decoder(insts, inst_len, is_header)
   insts.each do |inst|
     # skip instructions with no arguments
-    next if inst[:fields].size == 0 or (inst[:fields].size == 1 && inst[:fields]['a'] == "auto_cond")
+    next if inst[:fields].size == 0 or (inst[:fields].size == 1 && inst[:fields].first[1][:name] == "auto_cond")
     print generate_f_prot(inst, inst_len)
     puts ";" if is_header
     puts generate_f_body(inst, inst_len) unless is_header
