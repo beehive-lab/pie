@@ -274,9 +274,9 @@ neon_vfms            11110010 0d1saaaa bbbb1100 nqm1cccc, s:size, q:q, d:d, b:vd
  vfp_vfnms           aaaa1110 1d01bbbb cccc101s n1m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
 neon_vhadd           1111001u 0dssaaaa bbbb0000 nqm0cccc, u:unsign, s:size, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vhsub           1111001u 0dssaaaa bbbb0010 nqm0cccc, u:unsign, s:size, d:d, b:vd, n:n, a:vn, m:m, c:vm
-neon_vldx_m          11110100 0a10bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
-neon_vldx_s_a        11110100 1a10bbbb cccc11dd eeeeffff, d:opcode4, e:params, a:d, c:vd, b:rn, f:rm
-neon_vldx_s_o        11110100 1a10bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
+neon_vldx_m          11110100 0a10bbbb ccccdddd eeffgggg, d:opcode, e:size, a:d, c:vd, b:rn, f:align, g:rm
+neon_vldx_s_o        11110100 1a10bbbb ccccddee ffffgggg, e:opcode, d:size, a:d, c:vd, b:rn, f:index_align, g:rm
+neon_vldx_s_a        11110100 1a10bbbb cccc11dd eetgffff, d:opcode, e:size, a:d, c:vd, t:inc, b:rn, g:align, f:rm
  vfp_vldm_dp         aaaa110b cde1ffff gggg1011 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
  vfp_vldm_sp         aaaa110b cde1ffff gggg1010 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
  vfp_vldr_dp         aaaa1101 bc01dddd eeee1011 ffffffff, a:auto_cond, b:upwards, c:d, d:rn, e:vd, f:imm8
@@ -386,9 +386,8 @@ neon_vsli            11110011 1daaaaaa bbbb0101 lqm1cccc, q:q, d:d, b:vd, m:m, c
  vfp_vsqrt           aaaa1110 1d110001 bbbb101s 11m0cccc, a:auto_cond, s:size, d:d, b:vd, m:m, c:vm
 neon_vsra            1111001a 1bcccccc dddd0001 efg1hhhh, a:unsign, f:q, b:d, d:vd, g:m, h:vm, e:l, c:imm6
 neon_vsri            11110011 1daaaaaa bbbb0100 lqm1cccc, q:q, d:d, b:vd, m:m, c:vm, l:l, a:imm6
-neon_vstx_m          11110100 0a00bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
-neon_vstx_s_a        11110100 1a00bbbb cccc11dd eeeeffff, d:opcode4, e:params, a:d, c:vd, b:rn, f:rm
-neon_vstx_s_o        11110100 1a00bbbb ccccddee ffffgggg, d:opcode3, e:opcode4, f:params, a:d, c:vd, b:rn, g:rm
+neon_vstx_m          11110100 0a00bbbb ccccdddd eeffgggg, d:opcode, e:size, a:d, c:vd, b:rn, f:align, g:rm
+neon_vstx_s_o        11110100 1a00bbbb ccccddee ffffgggg, e:opcode, d:size:!:11, a:d, c:vd, b:rn, f:index_align, g:rm
  vfp_vstm_dp         aaaa110b cde0ffff gggg1011 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
  vfp_vstm_sp         aaaa110b cde0ffff gggg1010 hhhhhhhh, a:auto_cond, b:p, c:upwards, d:d, e:writeback, f:rn, g:vd, h:imm8
  vfp_vstr_dp         aaaa1101 bc00dddd eeee1011 ffffffff, a:auto_cond, b:upwards, c:d, d:rn, e:vd, f:imm8

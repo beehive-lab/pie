@@ -410,9 +410,9 @@ neon_vfms           11101111 0a1sbbbb cccc1100 nqm1dddd, s:size, q:q, a:d, c:vd,
  vfp_vfnms          11101110 1d01aaaa bbbb101s n1m0cccc, s:size, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vhadd          111a1111 0bccdddd eeee0000 fgh0iiii, a:unsign, c:size, g:q, b:d, e:vd, f:n, d:vn, h:m, i:vm
 neon_vhsub          111a1111 0bccdddd eeee0010 fgh0iiii, a:unsign, c:size, g:q, b:d, e:vd, f:n, d:vn, h:m, i:vm
-neon_vldx_m         11111001 0a10bbbb ccccddee ffgghhhh, a:d, b:rn, c:vd, d:size, e:element_size, f:sz, g:align, h:rm
-neon_vldx_s_a       11111001 1a10bbbb cccc11dd eeffgggg, a:d, b:rn, c:vd, d:element_size, e:sz, f:align, g:rm
-neon_vldx_s_o       11111001 1a10bbbb ccccddee ffgghhhh, a:d, b:rn, c:vd, d:size, e:element_size, f:sz, g:align, h:rm
+neon_vldx_m         11111001 0a10bbbb ccccdddd eeffgggg, d:opcode, e:size, a:d, c:vd, b:rn, f:align, g:rm
+neon_vldx_s_o       11111001 1a10bbbb ccccddee ffffgggg, e:opcode, d:size, a:d, c:vd, b:rn, f:index_align, g:rm
+neon_vldx_s_a       11111001 1a10bbbb cccc11dd eetgffff, d:opcode, e:size, a:d, c:vd, t:inc, b:rn, g:align, f:rm
  vfp_vldm_dp        1110110p udw1aaaa bbbb1011 cccccccc, p:p, u:upwards, w:writeback, a:rn, d:d, b:vd, c:imm8
  vfp_vldm_sp        1110110p udw1aaaa bbbb1010 cccccccc, p:p, u:upwards, w:writeback, a:rn, d:d, b:vd, c:imm8
  vfp_vldr_dp        11101101 ud01aaaa bbbb1011 cccccccc, u:upwards, a:rn, d:d, b:vd, c:imm8
@@ -519,8 +519,8 @@ neon_vsli           11111111 1abbbbbb cccc0101 def1gggg, e:q, a:d, c:vd, f:m, g:
  vfp_vsqrt          11101110 1d110001 aaaa101s 11m0bbbb, s:size, d:d, a:vd, m:m, b:vm
 neon_vsra           111u1111 1daaaaaa bbbb0001 lqm1cccc, u:unsign, q:q, d:d, b:vd, m:m, c:vm, l:l, a:imm6
 neon_vsri           11111111 1daaaaaa bbbb0100 lqm1cccc, q:q, d:d, b:vd, m:m, c:vm, l:l, a:imm6
-neon_vstx_m         11111001 0a00bbbb ccccddee ffgghhhh, a:d, b:rn, c:vd, d:size, e:element_size, f:sz, g:align, h:rm
-neon_vstx_s_o       11111001 1a00bbbb ccccddee ffgghhhh, a:d, b:rn, c:vd, d:size, e:element_size, f:sz, g:align, h:rm
+neon_vstx_m         11111001 0a00bbbb ccccdddd eeffgggg, d:opcode, e:size, a:d, c:vd, b:rn, f:align, g:rm
+neon_vstx_s_o       11111001 1a00bbbb ccccddee ffffgggg, e:opcode, d:size:!:11, a:d, c:vd, b:rn, f:index_align, g:rm
  vfp_vstm_dp        1110110p udw0aaaa bbbb1011 cccccccc, p:p, u:upwards, w:writeback, a:rn, d:d, b:vd, c:imm8
  vfp_vstm_sp        1110110p udw0aaaa bbbb1010 cccccccc, p:p, u:upwards, w:writeback, a:rn, d:d, b:vd, c:imm8
  vfp_vstr_dp        11101101 ud00aaaa bbbb1011 cccccccc, u:upwards, a:rn, d:d, b:vd, c:imm8
