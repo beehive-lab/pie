@@ -38,8 +38,7 @@ ldrh             aaaa000b cde1ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, 
 ldrht            aaaa0000 ub11cccc dddddeee 1011ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h
 ldrsb            aaaa000p ubw1cccc ddddeeee 1101ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, p:index, w:writeback
 ldrsbt           aaaa0000 ub11cccc ddddeeee 1101ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, u:updown
-ldrsh            aaaa000p ubw1cccc ddddeeee 1111ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, u:updown, w:writeback
-ldrshi           aaaa000b c1d1eeee ffffgggg 1111hhhh, a:auto_cond, f:rd, e:rn, h:rm, g:imm4h, b:prepostindex, c:updown, d:writeback
+ldrsh            aaaa000p ubw1cccc ddddeeee 1111ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm_imm4l, e:imm4h, p:prepostindex, u:updown, w:writeback
 ldrsht           aaaa0000 ub11cccc ddddeeee 1111ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, u:updown
 ldrt             aaaa01b0 u011cccc ddddeeee eeeeeeee, a:auto_cond, b:immediate, d:rd, c:rn, u:updown, e:operand2
 mcr              aaaa1110 bbb0cccc ddddeeee fff1gggg, a:auto_cond, b:opc1, c:crn, d:rd, e:coproc, f:opc2, g:crm
