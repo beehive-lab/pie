@@ -29,14 +29,14 @@ ldm              aaaa100b cde1ffff gggggggg gggggggg, a:auto_cond, f:rn, g:regis
 ldr              aaaa01bc d0e1ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
 ldrb             aaaa01bc d1e1ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
 ldrbt            aaaa01b0 u111cccc ddddeeee eeeeeeee, a:auto_cond, b:immediate, d:rd, c:rn, u:updown, e:operand2
-ldrd             aaaa000b cde0ffff gggghhhh 1101iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
+ldrd             aaaa000b cde0ffff gggghhhh 1101iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm_imm4l, h:imm4h, b:prepostindex, c:updown, e:writeback
 ldrex            aaaa0001 1001bbbb cccc1111 10011111, a:auto_cond, c:rd, b:rn
 ldrexb           aaaa0001 1101bbbb cccc1111 10011111, a:auto_cond, c:rd, b:rn
 ldrexd           aaaa0001 1011bbbb cccc1111 10011111, a:auto_cond, c:rd, b:rn
 ldrexh           aaaa0001 1111bbbb cccc1111 10011111, a:auto_cond, c:rd, b:rn
-ldrh             aaaa000b cde1ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
-ldrht            aaaa0000 ub11cccc dddddeee 1011ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h
-ldrsb            aaaa000p ubw1cccc ddddeeee 1101ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, p:index, w:writeback
+ldrh             aaaa000b cde1ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm_imm4l, h:imm4h, b:prepostindex, c:updown, e:writeback
+ldrht            aaaa0000 ub11cccc dddddeee 1011ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm_imm4l, e:imm4h
+ldrsb            aaaa000p ubw1cccc ddddeeee 1101ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm_imm4l, e:imm4h, p:index, w:writeback
 ldrsbt           aaaa0000 ub11cccc ddddeeee 1101ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, u:updown
 ldrsh            aaaa000p ubw1cccc ddddeeee 1111ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm_imm4l, e:imm4h, p:prepostindex, u:updown, w:writeback
 ldrsht           aaaa0000 ub11cccc ddddeeee 1111ffff, a:auto_cond, b:immediate, d:rd, c:rn, f:rm, e:imm4h, u:updown
@@ -137,13 +137,13 @@ stc              aaaa110b cde0ffff gggghhhh iiiiiiii, a:auto_cond, b:p, c:upward
 stm              aaaa100b cde0ffff gggggggg gggggggg, a:auto_cond, f:rn, g:registers, b:prepostindex, c:updown, e:writeback, d:psr
 str              aaaa01bc d0e0ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
 strb             aaaa01bc d1e0ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
-strd             aaaa000b cde0ffff gggghhhh 1111iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
+strd             aaaa000b cde0ffff gggghhhh 1111iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm_imm4l, h:imm4h, b:prepostindex, c:updown, e:writeback
 strex            aaaa0001 1000bbbb cccc1111 1001dddd, a:auto_cond, c:rd, b:rn, d:rm
 strexb           aaaa0001 1100bbbb cccc1111 1001dddd, a:auto_cond, c:rd, d:rt, b:rn
 strexd           aaaa0001 1010bbbb cccc1111 1001dddd, a:auto_cond, c:rd, d:rt, b:rn
 strexh           aaaa0001 1110bbbb cccc1111 1001dddd, a:auto_cond, c:rd, d:rt, b:rn
-strh             aaaa000b cde0ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm, h:imm4h, b:prepostindex, c:updown, e:writeback
-strht            aaaa0000 ui10bbbb ccccdddd 1011eeee, a:auto_cond, i:immediate, c:rd, b:rn, e:rm, d:imm4h, u:updown
+strh             aaaa000b cde0ffff gggghhhh 1011iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm_imm4l, h:imm4h, b:prepostindex, c:updown, e:writeback
+strht            aaaa0000 ui10bbbb ccccdddd 1011eeee, a:auto_cond, i:immediate, c:rd, b:rn, e:rm_imm4l, d:imm4h, u:updown
 strt             aaaa01i0 u010bbbb ccccdddd dddddddd, a:auto_cond, i:immediate, c:rd, b:rn, d:operand2
 sub              aaaa00b0 010cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
 svc              aaaa1111 bbbbbbbb bbbbbbbb bbbbbbbb, a:auto_cond, b:comment
