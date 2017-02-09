@@ -30,14 +30,14 @@ end
 def process_file(filename, insts_only = false)
   insts = []
 
-  File.readlines(filename).each do |line|
-    line.strip!
-    if line.empty?
+  File.readlines(filename).each do |raw_line|
+    raw_line.strip!
+    if raw_line.empty?
       break if insts_only
       next
     end
-    next if line[0] == '#'
-    line = line.split(/[, ]+/)
+    next if raw_line[0] == '#'
+    line = raw_line.split(/[, ]+/)
     
     inst = Hash.new
     inst[:name] = line[0]
@@ -65,6 +65,15 @@ def process_file(filename, insts_only = false)
         end
         inst[:fields][field[0]][:cond] = cond
         inst[:fields][field[0]][:cond_vals] = field[3..-1].map {|v| v.to_i(2)}
+      end
+    end
+
+    # check that all fields have been defined
+    inst[:bitmap].each_char do |f|
+      unless f == '0' or f == '1' or inst[:fields][f]
+        warn "Error: field #{f} not defined for #{inst[:name]}"
+        warn raw_line
+        abort
       end
     end
  
