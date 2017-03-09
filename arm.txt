@@ -287,8 +287,8 @@ neon_vfma            11110010 0d0saaaa bbbb1100 nqm1cccc, s:size, q:q, d:d, b:vd
 neon_vfms            11110010 0d1saaaa bbbb1100 nqm1cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
  vfp_vfma            aaaa1110 1d10bbbb cccc101s n0m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
  vfp_vfms            aaaa1110 1d10bbbb cccc101s n1m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
- vfp_vfnma           aaaa1110 1d01bbbb cccc101s n0m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
- vfp_vfnms           aaaa1110 1d01bbbb cccc101s n1m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
+ vfp_vfnma           aaaa1110 1d01bbbb cccc101s n1m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
+ vfp_vfnms           aaaa1110 1d01bbbb cccc101s n0m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
 neon_vhadd           1111001u 0dssaaaa bbbb0000 nqm0cccc, u:unsign, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vhsub           1111001u 0dssaaaa bbbb0010 nqm0cccc, u:unsign, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vldx_m          11110100 0a10bbbb ccccdddd eeffgggg, d:opcode, e:size, a:d, c:vd, b:rn, f:align, g:rm
