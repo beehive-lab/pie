@@ -1,14 +1,26 @@
 CC=$(CROSS_COMPILE)gcc
-CFLAGS= -Os -Wall -g -std=c99
-LDFLAGS=-Wl,-z,execstack
+CFLAGS= -Os -Wall -g -std=c99 #-DPIE_AUTOINC
+
+C_ARCH = $(shell $(CC) -dumpmachine | awk -F '-' '{print $$1}')
+ifeq ($(C_ARCH),arm)
+	NATIVE_TARGETS = arm thumb
+endif
+ifeq ($(C_ARCH),aarch64)
+	NATIVE_TARGETS = a64
+endif
 
 .SECONDARY:
-.PHONY: pie clean
+.PHONY: native print_arch all pie clean
 
-all:
-	make ARCH=arm pie
-	make ARCH=thumb pie
-	make ARCH=a64 pie
+native: print_arch $(NATIVE_TARGETS)
+	
+print_arch:
+	$(info PIE: detected architecture "$(C_ARCH)")
+
+all: thumb arm a64
+
+%:
+	$(MAKE) --no-print-directory ARCH=$@ pie
 
 pie: pie-$(ARCH)-decoder.o pie-$(ARCH)-encoder.o pie-$(ARCH)-field-decoder.o
 
