@@ -95,7 +95,7 @@ rev16            aaaa0110 10111111 bbbb1111 1011cccc, a:auto_cond, b:rd, c:rm
 revsh            aaaa0110 11111111 bbbb1111 1011cccc, a:auto_cond, b:rd, c:rm
 rrx              aaaa0001 101s0000 bbbb0000 0110cccc, a:auto_cond, s:set_condition, b:rd, c:rm
 rsb              aaaa00b0 011cdddd eeeeffff ffffffff, a:auto_cond, b:immediate, c:set_condition, e:rd, d:rn, f:operand2
-rsc              aaaa00b0 1110cccc ddddeeee eeeeeeee, a:auto_cond, b:immediate, d:rd, c:rn, e:operand2
+rsc              aaaa00b0 111fcccc ddddeeee eeeeeeee, a:auto_cond, b:immediate, f:set_condition, d:rd, c:rn, e:operand2
 sadd16           aaaa0110 0001bbbb cccc1111 0001dddd, a:auto_cond, c:rd, b:rn, d:rm
 sadd8            aaaa0110 0001bbbb cccc1111 1001dddd, a:auto_cond, c:rd, b:rn, d:rm
 sasx             aaaa0110 0001bbbb cccc1111 0011dddd, a:auto_cond, c:rd, b:rn, d:rm
