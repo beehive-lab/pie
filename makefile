@@ -2,7 +2,7 @@ CC=$(CROSS_COMPILE)gcc
 CFLAGS= -Os -Wall -g -std=c99 #-DPIE_AUTOINC
 
 C_ARCH = $(shell $(CC) -dumpmachine | awk -F '-' '{print $$1}')
-ifeq ($(C_ARCH),arm)
+ifeq ($(findstring arm, $(C_ARCH)), arm)
 	NATIVE_TARGETS = arm thumb
 endif
 ifeq ($(C_ARCH),aarch64)
