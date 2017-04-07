@@ -285,7 +285,8 @@ stmea32          11101000 10a0bbbb cccccccc cccccccc, a:writeback, b:rn, c:regli
 stmfd32          11101001 00a0bbbb cccccccc cccccccc, a:writeback, b:rn, c:reglist
 str32            11111000 0100aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
 strb32           11111000 0000aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
-strbi32          1111100a b000cccc ddddeeee eeeeeeee, a:sign_ext, b:upwards, c:rn, d:rt, e:imm12
+strbi32          11111000 0000cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
+strbwi32         11111000 1000cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 strbt32          11111000 0000aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
 strd32           1110100a b1c0dddd eeeeffff gggggggg, a:pre_index, b:upwards, c:writeback, d:rn, e:rt, f:rd, g:imm8
 strex32          11101000 0100aaaa bbbbcccc dddddddd, a:rn, b:rt, c:rd, d:imm8
@@ -293,10 +294,12 @@ strexb32         11101000 1100aaaa bbbb1111 0100dddd, a:rn, b:rt, d:rd
 strexd32         11101000 1100aaaa bbbbcccc 0111dddd, a:rn, b:rt, c:rt2, d:rd
 strexh32         11101000 1100aaaa bbbb1111 0101dddd, a:rn, b:rt, d:rd
 strh32           11111000 0010aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
-strhi32          1111100a b010cccc ddddeeee eeeeeeee, a:sign_ext, b:upwards, c:rn, d:rt, e:imm12
+strhi32          11111000 0010cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
+strhwi32         11111000 1010cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 strht            11111000 0010aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
-stri32           1111100a b100cccc ddddeeee eeeeeeee, a:sign_ext, b:upwards, c:rn, d:rt, e:imm12
+stri32           11111000 0100cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
 strt32           11111000 0100aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
+strwi32          11111000 1100cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 sub32            11101011 101abbbb 0cccdddd eeffgggg, a:set_flags, b:rn, c:imm3, d:rd, e:imm2, f:shift_type, g:rm
 subi32           11110a01 101bcccc 0dddeeee ffffffff, a:imm1, b:set_condition, c:rn, d:imm3, e:rd, f:imm8
 subwi32          11110a10 1010bbbb 0cccdddd eeeeeeee, a:imm1, b:rn, c:imm3, d:rd, e:imm8
