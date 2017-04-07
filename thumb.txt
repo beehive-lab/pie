@@ -147,7 +147,7 @@ ldmea32          11101001 00a1bbbb cccccccc cccccccc, a:writeback, b:rn, c:regli
 ldmfd32          11101000 10a1bbbb cccccccc cccccccc, a:writeback, b:rn, c:reglist
 ldr32            11111000 0101aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
 ldrb32           11111000 0001aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
-ldrbi32          11111000 0001cccc dddd1puw eeeeeeee, c:rn, d:rt, e:imm8, p:pre_index, u:upwards, w:writeback
+ldrbi32          11111000 0001cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
 ldrbwi32         11111000 1001cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 ldrbt32          11111000 0001aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
 ldrd32           1110100a b1c1dddd eeeeffff gggggggg, a:pre_index, b:upwards, c:writeback, d:rn, e:rt, f:rd, g:imm8
@@ -156,17 +156,17 @@ ldrexb32         11101000 1101aaaa bbbb1111 01001111, a:rn, b:rt
 ldrexd32         11101000 1101aaaa bbbbcccc 01111111, a:rn, b:rt, c:rt2
 ldrexh32         11101000 1101aaaa bbbb1111 01011111, a:rn, b:rt
 ldrh32           11111000 0011aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
-ldrhi32          11111000 0011cccc dddd1puw eeeeeeee, c:rn, d:rt, e:imm8, p:pre_index, u:upwards, w:writeback
+ldrhi32          11111000 0011cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
 ldrhwi32         11111000 1011cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 ldrht32          11111000 0011aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
-ldri32           11111000 0101cccc dddd1puw eeeeeeee, c:rn, d:rt, e:imm8, p:pre_index, u:upwards, w:writeback
+ldri32           11111000 0101cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
 ldrl32           11111000 a1011111 ddddeeee eeeeeeee, d:rt, e:imm12, a:upwards
 ldrsb32          11111001 0001aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
-ldrsbi32         11111001 0001cccc dddd1puw eeeeeeee, c:rn, d:rt, e:imm8, p:pre_index, u:upwards, w:writeback
+ldrsbi32         11111001 0001cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
 ldrsbwi32        11111001 1001cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 ldrsbt32         11111001 0001aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
 ldrsh32          11111001 0011aaaa bbbb0000 00ccdddd, a:rn, b:rt, c:shift, d:rm
-ldrshi32         11111001 0011cccc dddd1puw eeeeeeee, c:rn, d:rt, e:imm8, p:pre_index, u:upwards, w:writeback
+ldrshi32         11111001 0011cccc dddd1puw eeeeeeee, d:rt, c:rn, e:imm8, p:pre_index, u:upwards, w:writeback
 ldrshwi32        11111001 1011cccc ddddeeee eeeeeeee, d:rt, c:rn, e:imm12
 ldrsht32         11111001 0011aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
 ldrt32           11111000 0101aaaa bbbb1110 cccccccc, b:rt, a:rn, c:imm8
