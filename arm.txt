@@ -155,6 +155,7 @@ stc              aaaa110b cde0ffff gggghhhh iiiiiiii, a:auto_cond, b:p, c:upward
 stm              aaaa100b cde0ffff gggggggg gggggggg, a:auto_cond, f:rn, g:registers, b:prepostindex, c:updown, e:writeback, d:psr
 str              aaaa01bc d0e0ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
 strb             aaaa01bc d1e0ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, c:prepostindex, d:updown, e:writeback
+strbt            aaaa01b0 d110ffff gggghhhh hhhhhhhh, a:auto_cond, b:immediate, g:rd, f:rn, h:offset, d:updown
 strd             aaaa000b cde0ffff gggghhhh 1111iiii, a:auto_cond, d:immediate, g:rd, f:rn, i:rm_imm4l, h:imm4h, b:prepostindex, c:updown, e:writeback
 strex            aaaa0001 1000bbbb cccc1111 1001dddd, a:auto_cond, c:rd, b:rn, d:rm
 strexb           aaaa0001 1100bbbb cccc1111 1001dddd, a:auto_cond, c:rd, d:rt, b:rn
