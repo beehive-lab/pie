@@ -82,7 +82,7 @@ rsbi16           01000010 01aaabbb, a:rm, b:rdn
 sbc16            01000001 10aaabbb, a:rm, b:rdn
 setend16         10110110 0101e000, e:is_bigend
 sev16            10111111 01000000
-stmfd16          11000aaa bbbbbbbb, a:rn, b:reglist
+stmea16          11000aaa bbbbbbbb, a:rn, b:reglist
 str16            0101000a aabbbccc, a:rm, b:rn, c:rd
 strb16           0101010a aabbbccc, a:rm, b:rn, c:rd
 strbi16          01110aaa aabbbccc, a:imm5, b:rn, c:rd
