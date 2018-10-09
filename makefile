@@ -1,4 +1,3 @@
-CC=$(CROSS_COMPILE)gcc
 CFLAGS= -Os -Wall -g -std=c99 #-DPIE_AUTOINC
 
 C_ARCH = $(shell $(CC) -dumpmachine | awk -F '-' '{print $$1}')
