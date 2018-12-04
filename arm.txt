@@ -236,7 +236,7 @@ neon_vaba            1111001u 0daabbbb cccc0111 nqm1eeee, u:unsign, a:size, q:q,
 neon_vabal           1111001u 1daabbbb cccc0101 n0m0eeee, u:unsign, a:size:!:11, d:d, c:vd, n:n, b:vn, m:m, e:vm
 neon_vabd_i          1111001u 0daabbbb cccc0111 nqm0eeee, u:unsign, a:size, q:q, d:d, c:vd, n:n, b:vn, m:m, e:vm
 neon_vabd_f          11110011 0d1saaaa bbbb1101 nqm0cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
-neon_vabdl           1111001u 1daabbbb cccc0111 nqm0eeee, u:unsign, a:size, q:q, d:d, c:vd, n:n, b:vn, m:m, e:vm
+neon_vabdl           1111001u 1daabbbb cccc0111 n0m0eeee, u:unsign, a:size:!:11, d:d, c:vd, n:n, b:vn, m:m, e:vm
 neon_vabs            11110011 1d11ss01 aaaa0f11 0qm0bbbb, f:float_p, s:size, q:q, d:d, a:vd, m:m, b:vm
  vfp_vabs            aaaa1110 1d110000 bbbb101s 11m0cccc, a:auto_cond, s:size, d:d, b:vd, m:m, c:vm
 neon_vacge           11110011 0d0saaaa bbbb1110 nqm1cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
