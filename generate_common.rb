@@ -19,15 +19,20 @@ limitations under the License.
 
 =end
 
-def process_insts(filename)
-  process_file(filename, true)
+def process_insts(filename, swaphw = false)
+  process_file(filename, true, swaphw)
 end
 
-def process_all(filename)
-  process_file(filename, false)
+def process_all(filename, swaphw = false)
+  process_file(filename, false, swaphw)
 end
 
-def process_file(filename, insts_only = false)
+def do_swaphw(encoding)
+  return encoding[16..31] + encoding[0..15] if encoding.size == 32
+  return encoding
+end
+
+def process_file(filename, insts_only = false, swaphw = false)
   insts = []
 
   File.readlines(filename).each do |raw_line|
@@ -77,7 +82,11 @@ def process_file(filename, insts_only = false)
         abort
       end
     end
- 
+
+    if swaphw
+      inst[:bitmap] = do_swaphw(inst[:bitmap])
+    end
+
     insts.push inst
   end
   

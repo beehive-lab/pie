@@ -275,11 +275,14 @@ def generate_decoder(raw_insts, inst_len)
   puts "}"
 end
 
-insts = process_insts(ARGV[0] + ".txt")
+is_header = ARGV[1..].include?("header")
+swaphw = ARGV[1..].include?("swaphw")
+
+insts = process_insts(ARGV[0] + ".txt", swaphw)
 
 inst_len = get_min_inst_len(insts)
 
-if (ARGV[1] and ARGV[1] == "header")
+if (is_header)
   generate_header(insts, inst_len)
 else
   generate_decoder(insts, inst_len)
