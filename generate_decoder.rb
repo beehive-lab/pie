@@ -211,24 +211,31 @@ def handle_cond_field(inst)
         if is_valid
           new_inst = inst.dup
           new_inst[:bitmap] = inst[:bitmap].dup
+          new_inst[:fields] = new_inst[:fields].dup
+          new_inst[:fields].each do |fl, f|
+            new_inst[:fields][fl] = new_inst[:fields][fl].dup
+          end
+          new_inst[:fields][field_label].delete(:cond)
+          new_inst[:fields][field_label].delete(:cond_vals)
           inst_set_field(new_inst, field_label, field_width, value)
           insts.push(new_inst)
         end
       end
-      field.delete(:cond)
-      field.delete(:cond_vals)
+      break
     end
   end
 
+  results = []
   insts.each do |new_inst|
     t_insts = handle_cond_field(new_inst)
     if t_insts.size > 0
-      insts.delete(new_inst)
-      insts.concat(t_insts)
+      results.concat(t_insts)
+    else
+      results.push(new_inst)
     end
   end
 
-  return insts
+  return results
 end
 
 def generate_decoder(raw_insts, inst_len)
