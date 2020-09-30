@@ -104,8 +104,8 @@ def generate_all(insts, inst_len)
   generate_encoder(insts, inst_len, false)
 end
 
-is_header = ARGV[1..].include?("header")
-swaphw = ARGV[1..].include?("swaphw")
+is_header = ARGV[1...ARGV.size].include?("header")
+swaphw = ARGV[1...ARGV.size].include?("swaphw")
 
 insts = process_all(ARGV[0] + ".txt", swaphw)
 inst_len = get_min_inst_len(insts)

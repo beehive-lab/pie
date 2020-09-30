@@ -275,8 +275,8 @@ def generate_decoder(raw_insts, inst_len)
   puts "}"
 end
 
-is_header = ARGV[1..].include?("header")
-swaphw = ARGV[1..].include?("swaphw")
+is_header = ARGV[1...ARGV.size].include?("header")
+swaphw = ARGV[1...ARGV.size].include?("swaphw")
 
 insts = process_insts(ARGV[0] + ".txt", swaphw)
 
