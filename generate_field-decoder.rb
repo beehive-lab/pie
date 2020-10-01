@@ -36,13 +36,17 @@ def generate_f_prot(inst, inst_len)
   return prot
 end
 
-def generate_f_body(inst, def_inst_len)
+def generate_f_body(inst, def_inst_len, swaphw)
   body =  "\n{\n"
 
   if (inst[:bitmap].size == def_inst_len)
     body += "\t#{inst_len_to_cptr(inst[:bitmap].size)} instruction = *address;\n"
   elsif (inst[:bitmap].size == def_inst_len * 2)
-    body += "\t#{inst_len_to_cptr(inst[:bitmap].size)} instruction = ((*address) << #{def_inst_len}) | *(address + 1);\n"
+    if (swaphw)
+      body += "\t#{inst_len_to_cptr(inst[:bitmap].size)} instruction = (*(address + 1) << #{def_inst_len}) | *address;\n"
+    else
+      body += "\t#{inst_len_to_cptr(inst[:bitmap].size)} instruction = (*address << #{def_inst_len}) | *(address + 1);\n"
+    end
   else
     abort "Unknown instruction inst word length"
   end
@@ -59,13 +63,13 @@ def generate_f_body(inst, def_inst_len)
   return body
 end
 
-def generate_field_decoder(insts, inst_len, is_header)
+def generate_field_decoder(insts, inst_len, is_header, swaphw)
   insts.each do |inst|
     # skip instructions with no arguments
     next if inst[:fields].size == 0 or (inst[:fields].size == 1 && inst[:fields].first[1][:name] == "auto_cond")
     print generate_f_prot(inst, inst_len)
     puts ";" if is_header
-    puts generate_f_body(inst, inst_len) unless is_header
+    puts generate_f_body(inst, inst_len, swaphw) unless is_header
   end
 end
 
@@ -74,24 +78,24 @@ def generate_header(insts, inst_len)
   puts "#define __#{ARGV[0].upcase}_PIE_FIELD_DECODER_H__"
   puts "#include <stdint.h>"
 
-  generate_field_decoder(insts, inst_len, true)
+  generate_field_decoder(insts, inst_len, true, false)
 
   puts "#endif"
 end
 
-def generate_all(insts, inst_len)
+def generate_all(insts, inst_len, swaphw)
   puts "#include \"pie-#{ARGV[0]}-field-decoder.h\""
 
-  generate_field_decoder(insts, inst_len, false)
+  generate_field_decoder(insts, inst_len, false, swaphw)
 end
 
 is_header = ARGV[1...ARGV.size].include?("header")
 swaphw = ARGV[1...ARGV.size].include?("swaphw")
 
-insts = process_all(ARGV[0] + ".txt", swaphw)
+insts = process_all(ARGV[0] + ".txt", false)
 inst_len = get_min_inst_len(insts)
 if (is_header)
   generate_header(insts, inst_len)
 else
-  generate_all(insts, inst_len)
+  generate_all(insts, inst_len, swaphw)
 end

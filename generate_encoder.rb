@@ -43,7 +43,7 @@ def generate_f_prot(inst, inst_len, cond)
   return prot
 end
 
-def generate_f_body(inst, def_inst_len, cond)
+def generate_f_body(inst, def_inst_len, cond, swaphw)
   body =  "{\n"
   body += "\t// #{inst[:bitmap]}\n"
   body +=  "\t#{inst_len_to_cptr(inst[:bitmap].size)} inst = 0x"
@@ -63,9 +63,9 @@ def generate_f_body(inst, def_inst_len, cond)
   if (inst[:bitmap].size == def_inst_len)
     body += "**address = inst;\n"
   elsif (inst[:bitmap].size == def_inst_len*2)
-    body += "**address = (#{inst_len_to_cptr(def_inst_len)})(inst >> #{def_inst_len});\n"
+    body += "*(*address#{swaphw ? ' + 1' : ''}) = (#{inst_len_to_cptr(def_inst_len)})(inst >> #{def_inst_len});\n"
     bitmask = ((1 << def_inst_len) - 1).to_s(16)
-    body += "\t*(*address + 1) = (#{inst_len_to_cptr(def_inst_len)})(inst & 0x#{bitmask});\n"
+    body += "\t*(*address#{swaphw ? '' : ' + 1'}) = (#{inst_len_to_cptr(def_inst_len)})(inst & 0x#{bitmask});\n"
   else
     abort "Unknown instruction inst word length"
   end
@@ -75,16 +75,16 @@ def generate_f_body(inst, def_inst_len, cond)
   return body
 end
 
-def generate_encoder(insts, inst_len, is_header)
+def generate_encoder(insts, inst_len, is_header, swaphw)
   insts.each do |inst|
     if has_cond_field(inst)
       print generate_f_prot(inst, inst_len, true)
       puts ";" if is_header
-      puts generate_f_body(inst, inst_len, true) unless is_header
+      puts generate_f_body(inst, inst_len, true, swaphw) unless is_header
     end
     print generate_f_prot(inst, inst_len, false)
     puts ";" if is_header
-    puts generate_f_body(inst, inst_len, false) unless is_header
+    puts generate_f_body(inst, inst_len, false, swaphw) unless is_header
   end
 end
 
@@ -93,24 +93,24 @@ def generate_header(insts, inst_len)
   puts "#define __#{ARGV[0].upcase}_PIE_ENCODER_H__"
   puts "#include <stdint.h>"
 
-  generate_encoder(insts, inst_len, true)
+  generate_encoder(insts, inst_len, true, false)
 
   puts "#endif"
 end
 
-def generate_all(insts, inst_len)
+def generate_all(insts, inst_len, swaphw)
   puts "#include \"pie-#{ARGV[0]}-encoder.h\""
 
-  generate_encoder(insts, inst_len, false)
+  generate_encoder(insts, inst_len, false, swaphw)
 end
 
 is_header = ARGV[1...ARGV.size].include?("header")
 swaphw = ARGV[1...ARGV.size].include?("swaphw")
 
-insts = process_all(ARGV[0] + ".txt", swaphw)
+insts = process_all(ARGV[0] + ".txt", false)
 inst_len = get_min_inst_len(insts)
 if (is_header)
   generate_header(insts, inst_len)
 else
-  generate_all(insts, inst_len)
+  generate_all(insts, inst_len, swaphw)
 end
