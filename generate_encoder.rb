@@ -4,6 +4,7 @@ This file is part of PIE, an instruction encoder / decoder generator:
     https://github.com/beehive-lab/pie
 
 Copyright 2011-2016 Cosmin Gorgovan <cosmin at linux-geek dot org>
+Copyright 2017-2021 The University of Manchester
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
