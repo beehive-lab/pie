@@ -56,6 +56,15 @@ LDx_STx_multiple        0a001100 0b000000 ccccddee eeefffff, a:q, b:l, c:opcode,
 LDx_STx_multiple_post   0a001100 1b0ccccc ddddeeff fffggggg, a:q, b:l, c:rm, d:opcode, e:size, f:rn, g:rt
 LDx_STx_single          0a001101 0bc00000 dddeffgg ggghhhhh, a:q, b:l, c:r, d:opcode, e:s, f:size, g:rn, h:rt
 LDx_STx_single_post     0a001101 1bcddddd eeefgghh hhhiiiii, a:q, b:l, c:r, d:rm, e:opcode, f:s, g:size, h:rn, i:rt
+LDADD                   aa111000 bc1ddddd 000000ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDCLR                   aa111000 bc1ddddd 000100ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDEOR                   aa111000 bc1ddddd 001000ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDSMAX                  aa111000 bc1ddddd 010000ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDSMIN                  aa111000 bc1ddddd 010100ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDUMAX                  aa111000 bc1ddddd 011000ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDUMIN                  aa111000 bc1ddddd 011100ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+LDSET                   aa111000 bc1ddddd 001100ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
+SWP                     aa111000 bc1ddddd 100000ee eeefffff, a:size, b:a, c:r, d:rs, e:rn, f:rt
 ADD_SUB_immed           abc10001 ddeeeeee eeeeeeff fffggggg, a:sf, b:op, c:s, d:shift, e:imm12, f:rn, g:rd
 BFM                     abb10011 0cdddddd eeeeeeff fffggggg, a:sf, b:opc, c:n, d:immr, e:imms, f:rn, g:rd
 EXTR                    a0010011 1b0ccccc ddddddee eeefffff, a:sf, b:n, c:rm, d:imms, e:rn, f:rd
