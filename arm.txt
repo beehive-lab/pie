@@ -105,6 +105,7 @@ sbfx             aaaa0111 101bbbbb ccccdddd d101eeee, a:auto_cond, c:rd, e:rn, d
 sdiv             aaaa0111 0001bbbb 1111cccc 0001dddd, a:auto_cond, b:rd, d:rn, c:rm
 sel              aaaa0110 1000bbbb cccc1111 1011dddd, a:auto_cond, c:rd, b:rn, d:rm
 setend           11110001 00000001 000000e0 00000000, e:set_bigend
+setpan           11110001 00010000 000000a0 00000000, a:imm
 sev              aaaa0011 00100000 11110000 00000100, a:auto_cond
 shadd16          aaaa0110 0011bbbb cccc1111 0001dddd, a:auto_cond, c:rd, b:rn, d:rm
 shadd8           aaaa0110 0011bbbb cccc1111 1001dddd, a:auto_cond, c:rd, b:rn, d:rm
@@ -370,6 +371,10 @@ neon_vqdmull_scal    11110010 1dssaaaa bbbb1011 n1m0cccc, s:size, d:d, b:vd, n:n
 neon_vqmovn          11110011 1d11ss10 aaaa0010 1om0bbbb, o:unsign, s:size, d:d, a:vd, m:m, b:vm
 neon_vqmovun         11110011 1d11ss10 aaaa0010 01m0bbbb, s:size, d:d, a:vd, m:m, b:vm
 neon_vqneg           11110011 1d11ss00 aaaa0111 1qm0bbbb, s:size, q:q, d:d, a:vd, m:m, b:vm
+neon_vqrdmlaha1      11110011 0abbcccc dddd1011 efg1hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm 
+neon_vqrdmlaha2      1111001a 1bccdddd eeee1110 f1g0hhhh, c:size, a:q, b:d, e:vd, f:n, d:vn, g:m, h:vm 
+neon_vqrdmlsha1      11110011 0abbcccc dddd1100 efg1hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm 
+neon_vqrdmlsha2      1111001a 1bccdddd eeee1111 f1g0hhhh, c:size, a:q, b:d, e:vd, f:n, d:vn, g:m, h:vm
 neon_vqrdmulh_i      11110011 0dssaaaa bbbb1011 nqm0cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vqrdmulh_scal   1111001q 1dssaaaa bbbb1101 n1m0cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vqrshl          1111001u 0dssaaaa bbbb0101 nqm1cccc, u:unsign, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
