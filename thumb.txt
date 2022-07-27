@@ -82,6 +82,7 @@ ror16            01000001 11aaabbb, a:rm, b:rdn
 rsbi16           01000010 01aaabbb, a:rm, b:rdn
 sbc16            01000001 10aaabbb, a:rm, b:rdn
 setend16         10110110 0101e000, e:is_bigend
+setpan           10110110 0001a000, a:imm
 sev16            10111111 01000000
 stmea16          11000aaa bbbbbbbb, a:rn, b:reglist
 str16            0101000a aabbbccc, a:rm, b:rn, c:rd
@@ -511,6 +512,10 @@ neon_vqdmull_scal   11101111 1dssaaaa bbbb1011 n1m0cccc, s:size:!:11, d:d, b:vd,
 neon_vqmovn         11111111 1a11bb10 cccc0010 1de0ffff, d:unsign, b:size, a:d, c:vd, e:m, f:vm
 neon_vqmovun        11111111 1a11bb10 cccc0010 01d0ffff, b:size, a:d, c:vd, d:m, f:vm
 neon_vqneg          11111111 1d11ss00 aaaa0111 1qm0bbbb, s:size, q:q, d:d, a:vd, m:m, b:vm
+neon_vqrdmlaht1     11111111 0abbcccc dddd1011 efg1hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm
+neon_vqrdmlaht2     111a1111 1bccdddd eeee1110 f1g0hhhh, c:size, a:q, b:d, e:vd, f:n, d:vn, g:m, h:vm
+neon_vqrdmlsht1     11111111 0abbcccc dddd1100 efg1hhhh, b:size, f:q, a:d, d:vd, e:n, c:vn, g:m, h:vm
+neon_vqrdmlsht2     111a1111 1bccdddd eeee1111 f1g0hhhh, c:size, a:q, b:d, e:vd, f:n, d:vn, g:m, h:vm
 neon_vqrdmulh_i     11111111 0dssaaaa bbbb1011 nqm0cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vqrdmulh_scal  111q1111 1dssaaaa bbbb1101 n1m0cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vqrshl         111u1111 0dssaaaa bbbb0101 nqm1cccc, u:unsign, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
