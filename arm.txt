@@ -286,7 +286,10 @@ neon_vdup_scal       11110011 1d11aaaa bbbb1100 0qm0cccc, a:auto_cond, q:q, a:im
 neon_vdup_core       aaaa1110 1bq0cccc ffff1011 d0e10000, a:auto_cond, b:b, e:e, q:q, d:d, c:vd, f:rt
 neon_veor            11110011 0d00aaaa bbbb0001 nqm1cccc, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vext            11110010 1d11aaaa bbbbcccc nqm0eeee, q:q, d:d, b:vd, n:n, a:vn, m:m, e:vm, c:imm4
+ vfp_vins_hp         11111110 1a110000 bbbb1010 11c0dddd, a:d, b:vd, c:m, d:vm 
 neon_vfma            11110010 0d0saaaa bbbb1100 nqm1cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
+ vfp_vfmal_el        11111110 0a00bbbb cccc1000 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
+ vfp_vfmal_vec       11111100 0a10bbbb cccc1000 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
 neon_vfms            11110010 0d1saaaa bbbb1100 nqm1cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
  vfp_vfma            aaaa1110 1d10bbbb cccc101s n0m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
  vfp_vfms            aaaa1110 1d10bbbb cccc101s n1m0eeee, a:auto_cond, s:size, d:d, c:vd, n:n, b:vn, m:m, e:vm
@@ -326,9 +329,13 @@ neon_vmovi           1111001i 1d000aaa bbbbcccc 0qo1eeee, q:q, d:d, b:vd, o:op, 
  vfp_vmov_core_sp    aaaa1110 000obbbb cccc1010 n0010000, a:auto_cond, o:op, c:rt, n:n, b:vn
  vfp_vmov_2core_2sp  aaaa1100 010obbbb cccc1010 00m1dddd, a:auto_cond, o:op, c:rt, b:rt2, m:m, d:vm
  vfp_vmov_2core_dp   aaaa1100 010obbbb cccc1011 00m1dddd, a:auto_cond, o:op, c:rt, b:rt2, m:m, d:vm
+ vfp_vmov_hp         aaaa1110 000bcccc dddd1001 e0010000, a:cond, b:op, d:rt, e:n, c:vn 
+ vfp_vmovx_hp        11111110 1a110000 bbbb1010 01c0dddd, a:d, b:vd, c:m, d:vm 
 neon_vmovl           1111001u 1daaa000 bbbb1010 00m1cccc, u:unsign, d:d, b:vd, m:m, c:vm, a:imm3
 neon_vmovn           11110011 1d11ss10 aaaa0010 00m0bbbb, s:size, d:d, a:vd, m:m, b:vm
  vfp_vmrs            aaaa1110 11110001 bbbb1010 00010000, a:auto_cond, b:rt
+ vfp_vfmsl_el        11111110 0a01bbbb cccc1000 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
+ vfp_vfmsl_vec       11111100 1a10bbbb cccc1000 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
  vfp_vmsr            aaaa1110 11100001 bbbb1010 00010000, a:auto_cond, b:rt
 neon_vmul_i          1111001a 0bccdddd eeee1001 fgh1iiii, a:opcode, c:size, g:q, b:d, e:vd, f:n, d:vn, h:m, i:vm
 neon_vmull_i         1111001a 1bccdddd eeee11f0 g0h0iiii, a:opcode, f:opcode4, c:size, b:d, e:vd, g:n, d:vn, h:m, i:vm
@@ -400,6 +407,9 @@ neon_vrsqrte         11110011 1d11ss11 aaaa010f 1qm0bbbb, f:floating_point, s:si
 neon_vrsqrts         11110010 0d1saaaa bbbb1111 nqm1cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vrsra           1111001u 1daaaaaa bbbb0011 lqm1cccc, u:unsign, q:q, d:d, b:vd, m:m, c:vm, l:l, a:imm6
 neon_vrsubhn         11110011 1dssaaaa bbbb0110 n0m0cccc, s:size, d:d, b:vd, n:n, a:vn, m:m, c:vm
+neon_vsdot_el        11111110 0a10bbbb cccc1101 defghhhh, g:u, e:q, a:d, c:vd, d:n, b:vn, f:m, h:vm
+neon_vsdot_vec       11111100 0a10bbbb cccc1101 defghhhh, g:u, e:q, a:d, c:vd, d:n, b:vn, f:m, h:vm
+neon_vsudot_el       11111110 1a00bbbb cccc1101 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
 neon_vshl            1111001u 0dssaaaa bbbb0100 nqm0cccc, u:unsign, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
 neon_vshli           11110010 1daaaaaa bbbb0101 lqm1cccc, q:q, d:d, b:vd, m:m, c:vm, l:l, a:imm6
 neon_vshll           1111001u 1daaaaaa bbbb1010 00m1cccc, u:unsign, d:d, b:vd, m:m, c:vm, a:imm6
@@ -427,6 +437,10 @@ neon_vtbl            11110011 1d11aaaa bbbb10cc n0m0eeee, d:d, b:vd, n:n, a:vn, 
 neon_vtbx            11110011 1d11aaaa bbbb10cc n1m0eeee, d:d, b:vd, n:n, a:vn, c:len, m:m, e:vm
 neon_vtrn            11110011 1a11bb10 cccc0000 1de0ffff, b:size, d:q, a:d, c:vd, e:m, f:vm
 neon_vtst            11110010 0dssaaaa bbbb1000 nqm1cccc, s:size, q:q, d:d, b:vd, n:n, a:vn, m:m, c:vm
+neon_vudot_el        11111110 0a10bbbb cccc1101 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
+neon_vudot_vec       11111100 0a10bbbb cccc1101 def1gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
+neon_vusdot_el       11111110 1a00bbbb cccc1101 def0gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
+neon_vusdot_vec      11111100 1a10bbbb cccc1101 def0gggg, e:q, a:d, c:vd, d:n, b:vn, f:m, g:vm
 neon_vuzp            11110011 1d11ss10 aaaa0001 0qm0bbbb, s:size, q:q, d:d, a:vd, m:m, b:vm
 neon_vzip            11110011 1d11ss10 aaaa0001 1qm0bbbb, s:size, q:q, d:d, a:vd, m:m, b:vm
 
