@@ -84,20 +84,24 @@ logical_reg             abb01010 ccdeeeee ffffffgg ggghhhhh, a:sf, b:opc, c:shif
 simd_across_lane        0ab01110 cc11000d dddd10ee eeefffff, a:q, b:u, c:size, d:opcode, e:rn, f:rd
 simd_copy               0ab01110 000ccccc 0dddd1ee eeefffff, a:q, b:op, c:imm5, d:imm4, e:rn, f:rd
 simd_extract            0a101110 000bbbbb 0cccc0dd dddeeeee, a:q, b:rm, c:imm4, d:rn, e:rd
-simd_modified_immed     0ab01111 00000ccc dddd01ee eeefffff, a:q, b:op, c:abc, d:cmode, e:defgh, f:rd
+simd_modified_immed     0ab01111 00000ccc ddddo1ee eeefffff, a:q, b:op, c:abc, d:cmode, o:o2, e:defgh, f:rd
 simd_permute            0a001110 bb0ccccc 0ddd10ee eeefffff, a:q, b:size, c:rm, d:opcode, e:rn, f:rd
 simd_scalar_copy        01011110 000aaaaa 000001bb bbbccccc, a:imm5, b:rn, c:rd
 simd_scalar_pairwise    01a11110 bb11000c cccc10dd dddeeeee, a:u, b:size, c:opcode, d:rn, e:rd
 simd_scalar_shift_immed 01a11111 0bbbbccc ddddd1ee eeefffff, a:u, b:immh, c:immb, d:opcode, e:rn, f:rd
 simd_scalar_three_diff  01a11110 bb1ccccc dddd00ee eeefffff, a:u, b:size, c:rm, d:opcode, e:rn, f:rd
 simd_scalar_three_same  01a11110 bb1ccccc ddddd1ee eeefffff, a:u, b:size, c:rm, d:opcode, e:rn, f:rd
+simd_scalar_three_same_fp16      01a11110 b10ccccc 00ddd1ee eeefffff, a:u, b:a, c:rm, d:opcode, e:rn, f:rd
 simd_scalar_two_reg     01a11110 bb10000c cccc10dd dddeeeee, a:u, b:size, c:opcode, d:rn, e:rd
+simd_scalar_two_reg_fp16         01a11110 b111100c cccc10dd dddeeeee, a:u, b:a, c:opcode, d:rn, e:rd
 simd_scalar_x_indexed   01a11111 bbcdeeee ffffg0hh hhhiiiii, a:u, b:size, c:l, d:m, e:rm, f:opcode, g:H, h:rn, i:rd
 simd_shift_immed        0ab01111 0ccccddd eeeee1ff fffggggg, a:q, b:u, c:immh:!:0000, d:immb, e:opcode, f:rn, g:rd
 simd_table_lookup       0a001110 000bbbbb 0ccd00ee eeefffff, a:q, b:rm, c:len, d:op, e:rn, f:rd
 simd_three_diff         0ab01110 cc1ddddd eeee00ff fffggggg, a:q, b:u, c:size, d:rm, e:opcode, f:rn, g:rd
 simd_three_same         0ab01110 cc1ddddd ccccc1dd dddeeeee, a:q, b:u, c:size, d:rm, c:opcode, d:rn, e:rd
+simd_three_same_fp16    0ab01110 c10ddddd 00eee1ff fffggggg, a:q, b:u, c:a, d:rm, e:opcode, f:rn, g:rd
 simd_two_reg            0ab01110 cc10000d dddd10ee eeefffff, a:q, b:u, c:size, d:opcode, e:rn, f:rd
+simd_two_reg_fp16       0ab01110 c111100d dddd10ee eeefffff, a:q, b:u, c:a, d:opcode, e:rn, f:rd
 simd_x_indexed          0ab01111 ccdeffff ggggh0ii iiijjjjj, a:q, b:u, c:size, d:l, e:m, f:rm, g:opcode, h:H, i:rn, j:rd
 crypto_aes              01001110 0010100a aaaa10bb bbbccccc, a:opcode, b:rn, c:rd
 crypto_sha_reg3         01011110 000aaaaa 0ccc00dd dddeeeee, a:rm, c:opcode, d:rn, e:rd
@@ -109,5 +113,19 @@ float_reg1              00011110 aa1bbbbb b10000cc cccddddd, a:type, b:opcode, c
 float_reg2              00011110 aa1bbbbb cccc10dd dddeeeee, a:type, b:rm, c:opcode, d:rn, e:rd
 float_reg3              00011111 aabccccc deeeeeff fffggggg, a:type, b:o1, c:rm, d:o0, e:Ra, f:rn, g:rd
 FMOV_immed              00011110 aa1bbbbb bbb10000 000ccccc, a:type, b:imm8, c:rd
-float_cvt_fixed         a0011110 bb0ccddd eeeeeeff fffggggg, a:sf, b:type, c:rmode, d:opcode, e:scale, f:rn, g:rd
-float_cvt_int           a0011110 bb1ccddd 000000ee eeefffff, a:sf, b:type, c:rmode, d:opcode, e:rn, f:rd
+float_immed             a0b11110 cc1ddddd ddd100ee eeefffff, a:m, b:s, c:ptype, d:imm8, e:imm5, f:rd
+float_cvt_fixed         a0s11110 bb0ccddd eeeeeeff fffggggg, a:sf, s:s, b:type, c:rmode, d:opcode, e:scale, f:rn, g:rd
+float_cvt_int           a0s11110 bb1ccddd 000000ee eeefffff, a:sf, s:s, b:type, c:rmode, d:opcode, e:rn, f:rd
+simd_three_reg_ext      0ab01110 cc0ddddd 1oooo1ee eeefffff, a:q, b:u, c:size, d:rm, e:rn, f:rd, o:opcode
+sve_float_mat_mult_acc  01100100 aa1bbbbb 111001cc cccddddd, a:opc, b:zm, c:zn, d:zda
+sve_ld_bcast_quad_scal_immed     1010010a abb0cccc 001dddee eeefffff, a:msz, b:ssz, c:imm4, d:pg, e:rn, f:zt
+sve_ld_bcast_quad_scal_scal      1010010a abbccccc 000dddee eeefffff, a:msz, b:ssz, c:rm, d:pg, e:rn, f:zt
+sve_permute_vector      00000101 101aaaaa 000bbcdd dddeeeee, a:zm, b:opc, c:h, d:zn, e:zd
+sve_permute_vector_el   00000101 aa1bbbbb 011cccdd dddeeeee, a:size, b:zm, c:opc, d:zn, e:zd
+sve_permute_vector_pred_el       00000101 aa10bbbb 010ccd0e eee0ffff, a:size, b:pm, c:opc, d:h, e:pn, f:pd
+sve_permute_vector_seg  00000101 101aaaaa 000bbcdd dddeeeee, a:zm, b:opc, c:h, d:zn, e:zd
+crypto_sha512_reg3      11001110 011aaaaa 1b00ccdd dddeeeee, a:rm, b:o, c:opcode, d:rn, e:rd
+crypto_sha512_reg2      11001110 11000000 1000aabb bbbccccc, a:opcode, b:rn, c:rd
+crypto_reg4             11001110 0aabbbbb 0cccccdd dddeeeee, a:op0, b:rm, c:ra, d:rn, e:rd
+crypto_reg3_imm2        11001110 010aaaaa 10bbccdd dddeeeee, a:rm, b:imm2, c:opcode, d:rn, e:rd
+sve_xar                 00000100 aa1bbccc 001101dd dddeeeee, a:tszh, b:tszl, c:imm3, d:zm, e:zdn
