@@ -39,6 +39,7 @@ ISB                     11010101 00000011 0011aaaa 11011111, a:crm
 SYS                     11010101 00001aaa bbbbcccc dddeeeee, a:op1, b:crn, c:crm, d:op2, e:rt
 MRS_MSR_reg             11010101 00a1bccc ddddeeee fffggggg, a:r, b:o0, c:op1, d:crn, e:crm, f:op2, g:rt
 SYSL                    11010101 00101aaa bbbbcccc dddeeeee, a:op1, b:crn, c:crm, d:op2, e:rt
+SB                      11010101 00000011 0011aaaa 11111111, a:crm
 TBZ_TBNZ                a011011b cccccddd dddddddd dddeeeee, a:b5, b:op, c:b40, d:imm14, e:rt
 B_BL                    a00101bb bbbbbbbb bbbbbbbb bbbbbbbb, a:op, b:imm26
 BR                      11010110 00011111 000000aa aaa00000, a:rn
