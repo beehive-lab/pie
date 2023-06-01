@@ -112,3 +112,4 @@ FMOV_immed              00011110 aa1bbbbb bbb10000 000ccccc, a:type, b:imm8, c:r
 float_cvt_fixed         a0011110 bb0ccddd eeeeeeff fffggggg, a:sf, b:type, c:rmode, d:opcode, e:scale, f:rn, g:rd
 float_cvt_int           a0011110 bb1ccddd 000000ee eeefffff, a:sf, b:type, c:rmode, d:opcode, e:rn, f:rd
 lrcpc_1                 aa111000 10111111 110000bb bbbccccc, a:size, b:Rn, c:Rt
+lrcpc_2                 aa011001 bb0ccccc cccc00dd dddeeeee, a:size, b:opc, c:imm9, d:Rn, e:Rt
