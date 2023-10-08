@@ -38,6 +38,7 @@ DMB                     11010101 00000011 0011aaaa 10111111, a:crm
 ISB                     11010101 00000011 0011aaaa 11011111, a:crm
 SYS                     11010101 00001aaa bbbbcccc dddeeeee, a:op1, b:crn, c:crm, d:op2, e:rt
 MRS_MSR_reg             11010101 00a1bccc ddddeeee fffggggg, a:r, b:o0, c:op1, d:crn, e:crm, f:op2, g:rt
+MRRS_MSRR               11010101 01abbccc ddddeeee fffggggg, a:L, b:op0, c:op1, d:CRn, e:CRm, f:op2, g:Rt
 SYSL                    11010101 00101aaa bbbbcccc dddeeeee, a:op1, b:crn, c:crm, d:op2, e:rt
 SB                      11010101 00000011 0011aaaa 11111111, a:crm
 TBZ_TBNZ                a011011b cccccddd dddddddd dddeeeee, a:b5, b:op, c:b40, d:imm14, e:rt
@@ -114,3 +115,4 @@ float_cvt_fixed         a0011110 bb0ccddd eeeeeeff fffggggg, a:sf, b:type, c:rmo
 float_cvt_int           a0011110 bb1ccddd 000000ee eeefffff, a:sf, b:type, c:rmode, d:opcode, e:rn, f:rd
 lrcpc_1                 aa111000 10111111 110000bb bbbccccc, a:size, b:Rn, c:Rt
 lrcpc_2                 aa011001 bb0ccccc cccc00dd dddeeeee, a:size, b:opc, c:imm9, d:Rn, e:Rt
+sve_mult_add_pred       00000100 aa0bbbbb cccdddee eeefffff, a:size, b:Zm, c:opc, d:pg, e:Zn, f:Zda
