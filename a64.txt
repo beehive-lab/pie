@@ -165,5 +165,6 @@ sve_sel                 00000101 aa1bbbbb 11ccccdd dddeeeee, a:size, b:Zm, c:pv,
 sve_ext_con             00000101 011aaaaa 000bbbcc cccddddd, a:imm8h, b:imm8l, c:zn, d:zd
 sve_ext_des             00000101 001aaaaa 000bbbcc cccddddd, a:imm8h, b:imm8l, c:zm, d:zdn
 sve_zip                 00000101 101aaaaa 00000bcc cccddddd, a:zm, b:B, c:zn, d:zd
+sve_int_cmp             00100100 aa0bbbbb cccdddee eeefgggg, a:size, b:Zm, c:opc, d:pg, e:Zn, f:ne, g:pd
 sve_uzp                 00000101 101aaaaa 00001bcc cccddddd, a:zm, b:B, c:zn, d:zd
 sve_trn                 00000101 101aaaaa 00011bcc cccddddd, a:zm, b:B, c:zn, d:zd
