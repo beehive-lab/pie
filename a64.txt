@@ -148,3 +148,4 @@ sve_rev_unpred          00000101 aa111000 001110bb bbbccccc, a:size, b:Zn, c:Zd
 sve_unpk_pred           00000101 0011000a 0100000b bbb0cccc, a:H, b:Pn, c:Pd
 sve_permute_pred        00000101 aa10bbbb 010ccd0e eee0ffff, a:size, b:Pm, c:opc, d:H, e:Pn, f:Pd
 sve_rev_pred            00000101 aa110100 0100000b bbb0cccc, a:size, b:Pn, c:Pd
+sve_permute_vec         00000101 aa1bbbbb 011cccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
