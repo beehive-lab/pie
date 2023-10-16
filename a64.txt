@@ -130,3 +130,4 @@ sve_adr                 00000100 aa1bbbbb 1010ccdd dddeeeee, a:opc, b:Zm, c:msz,
 sve_int_misc            00000100 aa1bbbbb 1011ccdd dddeeeee, a:opc, b:Zm, c:opc2, d:Zn, e:Zd
 sve_elem_cnt            00000100 aaaabbbb 11ccccdd dddeeeee, a:opc, b:imm4, c:opc2, d:patteRn, e:Zdn
 sve_bitwise_imm         00000101 aa0000bb bbbbbbbb bbbccccc, a:opc, b:imm13, c:Zdn
+sve_int_wide_imm_pred   00000101 aa01bbbb cccddddd dddeeeee, a:size, b:pg, c:opc, d:imm8, e:Zd
