@@ -128,3 +128,4 @@ sve2_int_mult_unpred    00000100 aa1bbbbb 011cccdd dddeeeee, a:size, b:Zm, c:opc
 sve_bit_shift_unpred    00000100 aa1bbbbb 100cccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
 sve_adr                 00000100 aa1bbbbb 1010ccdd dddeeeee, a:opc, b:Zm, c:msz, d:Zn, e:Zd
 sve_int_misc            00000100 aa1bbbbb 1011ccdd dddeeeee, a:opc, b:Zm, c:opc2, d:Zn, e:Zd
+sve_elem_cnt            00000100 aaaabbbb 11ccccdd dddeeeee, a:opc, b:imm4, c:opc2, d:patteRn, e:Zdn
