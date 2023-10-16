@@ -138,3 +138,10 @@ sve2_tbl                00000101 aa1bbbbb 001010cc cccddddd, a:size, b:Zm, c:Zn,
 sve2_tbx                00000101 aa1bbbbb 001011cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
 sve_tbl                 00000101 aa1bbbbb 001100cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
 sve2_tbqx               00000101 aa1bbbbb 001101cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
+sve_dup_scalar          00000101 aa100000 001110bb bbbccccc, a:size, b:Rn, c:Zd
+sve_insr_scalar         00000101 aa100100 001110bb bbbccccc, a:size, b:Rm, c:Zdn
+sve2_pmov_to_pred       00000101 aa101bb0 001110cc ccc0dddd, a:opc, b:opc2, c:Zn, d:Pd
+sve2_pmov_to_vec        00000101 aa101bb1 0011100c cccddddd, a:opc, b:opc2, c:Pn, d:Zd
+sve_unpk_unpred         00000101 aa1100bc 001110dd dddeeeee, a:size, b:U, c:H, d:Zn, e:Zd
+sve_insr_simd           00000101 aa110100 001110bb bbbccccc, a:size, b:Vm, c:Zdn
+sve_rev_unpred          00000101 aa111000 001110bb bbbccccc, a:size, b:Zn, c:Zd
