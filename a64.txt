@@ -145,3 +145,6 @@ sve2_pmov_to_vec        00000101 aa101bb1 0011100c cccddddd, a:opc, b:opc2, c:Pn
 sve_unpk_unpred         00000101 aa1100bc 001110dd dddeeeee, a:size, b:U, c:H, d:Zn, e:Zd
 sve_insr_simd           00000101 aa110100 001110bb bbbccccc, a:size, b:Vm, c:Zdn
 sve_rev_unpred          00000101 aa111000 001110bb bbbccccc, a:size, b:Zn, c:Zd
+sve_unpk_pred           00000101 0011000a 0100000b bbb0cccc, a:H, b:Pn, c:Pd
+sve_permute_pred        00000101 aa10bbbb 010ccd0e eee0ffff, a:size, b:Pm, c:opc, d:H, e:Pn, f:Pd
+sve_rev_pred            00000101 aa110100 0100000b bbb0cccc, a:size, b:Pn, c:Pd
