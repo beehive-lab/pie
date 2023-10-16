@@ -134,3 +134,7 @@ sve_int_wide_imm_pred   00000101 aa01bbbb cccddddd dddeeeee, a:size, b:pg, c:opc
 sve_dup_indexed         00000101 aa1bbbbb 001000cc cccddddd, a:imm2, b:tsz, c:Zn, d:Zd
 sve2_dupq               00000101 001abbbb 001001cc cccddddd, a:i1, b:tsz, c:Zn, d:Zd
 sve2_extq               00000101 0110aaaa 001001bb bbbccccc, a:imm4, b:Zm, c:Zdn
+sve2_tbl                00000101 aa1bbbbb 001010cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
+sve2_tbx                00000101 aa1bbbbb 001011cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
+sve_tbl                 00000101 aa1bbbbb 001100cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
+sve2_tbqx               00000101 aa1bbbbb 001101cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
