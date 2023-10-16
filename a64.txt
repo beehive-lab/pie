@@ -164,3 +164,6 @@ sve_clast_gen_reg       00000101 aa11000b 101cccdd dddeeeee, a:size, b:B, c:pg, 
 sve_sel                 00000101 aa1bbbbb 11ccccdd dddeeeee, a:size, b:Zm, c:pv, d:Zn, e:Zd
 sve_ext_con             00000101 011aaaaa 000bbbcc cccddddd, a:imm8h, b:imm8l, c:zn, d:zd
 sve_ext_des             00000101 001aaaaa 000bbbcc cccddddd, a:imm8h, b:imm8l, c:zm, d:zdn
+sve_zip                 00000101 101aaaaa 00000bcc cccddddd, a:zm, b:B, c:zn, d:zd
+sve_uzp                 00000101 101aaaaa 00001bcc cccddddd, a:zm, b:B, c:zn, d:zd
+sve_trn                 00000101 101aaaaa 00011bcc cccddddd, a:zm, b:B, c:zn, d:zd
