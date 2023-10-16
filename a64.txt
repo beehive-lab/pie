@@ -169,5 +169,6 @@ sve_int_cmp             00100100 aa0bbbbb cccdddee eeefgggg, a:size, b:Zm, c:opc
 sve_int_cmp_uimm        00100100 aa1bbbbb bbcdddee eeefgggg, a:size, b:imm7, c:lt, d:pg, e:Zn, f:ne, g:pd
 sve_int_cmp_simm        00100101 aa0bbbbb cccdddee eeefgggg, a:size, b:imm5, c:opc, d:pg, e:Zn, f:ne, g:pd
 sve_pred_log            00100101 aa00bbbb 01ccccde eeefgggg, a:opc, b:pm, c:pg, d:opc2, e:pn, f:opc3, g:pd
+sve_prop_break          00100101 aa00bbbb 11cccc0d dddeffff, a:opc, b:pm, c:pg, d:pn, e:B, f:pd
 sve_uzp                 00000101 101aaaaa 00001bcc cccddddd, a:zm, b:B, c:zn, d:zd
 sve_trn                 00000101 101aaaaa 00011bcc cccddddd, a:zm, b:B, c:zn, d:zd
