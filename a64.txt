@@ -149,3 +149,15 @@ sve_unpk_pred           00000101 0011000a 0100000b bbb0cccc, a:H, b:Pn, c:Pd
 sve_permute_pred        00000101 aa10bbbb 010ccd0e eee0ffff, a:size, b:Pm, c:opc, d:H, e:Pn, f:Pd
 sve_rev_pred            00000101 aa110100 0100000b bbb0cccc, a:size, b:Pn, c:Pd
 sve_permute_vec         00000101 aa1bbbbb 011cccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
+sve_cpy_simd            00000101 aa100000 100bbbcc cccddddd, a:size, b:Pg, c:Vn, d:Zd
+sve_compact             00000101 aa100001 100bbbcc cccddddd, a:size, b:pg, c:Zn, d:zd
+sve_last_scalar         00000101 aa10000b 101cccdd dddeeeee, a:size, b:B, c:pg, d:zn, e:rd
+sve_last_simd           00000101 aa10001b 100cccdd dddeeeee, a:size, b:B, c:pg, d:zn, e:vd
+sve_rev_elem            00000101 aa1001bb 100cccdd dddeeeee, a:size, b:opc, c:pg, d:zn, e:zd
+sve_cpy_scalar          00000101 aa101000 101bbbcc cccddddd, a:size, b:pg, c:rn, d:zd
+sve_clast_pred          00000101 aa10100b 100cccdd dddeeeee, a:size, b:B, c:pg, d:zm, e:zdn
+sve_clast_simd_pred     00000101 aa10101b 100cccdd dddeeeee, a:size, b:B, c:pg, d:zm, e:vdn
+sve_splice_con          00000101 aa101101 100bbbcc cccddddd, a:size, b:pv, c:zn, d:zd
+sve_splice_des          00000101 aa101100 100bbbcc cccddddd, a:size, b:pv, c:zm, d:zdn
+sve2_revd               00000101 aa101110 100bbbcc cccddddd, a:size, b:pg, c:zn, d:zd
+sve_clast_gen_reg       00000101 aa11000b 101cccdd dddeeeee, a:size, b:B, c:pg, d:zm, e:rdn
