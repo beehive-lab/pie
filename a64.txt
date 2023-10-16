@@ -162,3 +162,5 @@ sve_splice_des          00000101 aa101100 100bbbcc cccddddd, a:size, b:pv, c:zm,
 sve2_revd               00000101 aa101110 100bbbcc cccddddd, a:size, b:pg, c:zn, d:zd
 sve_clast_gen_reg       00000101 aa11000b 101cccdd dddeeeee, a:size, b:B, c:pg, d:zm, e:rdn
 sve_sel                 00000101 aa1bbbbb 11ccccdd dddeeeee, a:size, b:Zm, c:pv, d:Zn, e:Zd
+sve_ext_con             00000101 011aaaaa 000bbbcc cccddddd, a:imm8h, b:imm8l, c:zn, d:zd
+sve_ext_des             00000101 001aaaaa 000bbbcc cccddddd, a:imm8h, b:imm8l, c:zm, d:zdn
