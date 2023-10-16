@@ -172,3 +172,4 @@ sve_pred_log            00100101 aa00bbbb 01ccccde eeefgggg, a:opc, b:pm, c:pg, 
 sve_prop_break          00100101 aa00bbbb 11cccc0d dddeffff, a:opc, b:pm, c:pg, d:pn, e:B, f:pd
 sve_uzp                 00000101 101aaaaa 00001bcc cccddddd, a:zm, b:B, c:zn, d:zd
 sve_trn                 00000101 101aaaaa 00011bcc cccddddd, a:zm, b:B, c:zn, d:zd
+sve_part_break          00100101 aa01bbbb 01cccc0d dddeffff, a:opc, b:opc2, c:pg, d:pn, e:m, f:pd
