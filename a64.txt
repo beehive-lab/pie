@@ -200,3 +200,8 @@ sve_mult_indexed        01000100 aa1bbbbb bbbbbbcc cccddddd, a:size, b:opc, c:Zn
 sve2_two_dot_vec        01000100 000aaaaa 11001bcc cccddddd, a:Zm, b:u, c:Zn, d:Zda
 sve2_two_dot_index      01000100 100aaaaa 11001bcc cccddddd, a:opc, b:u, c:Zn, d:Zda
 sve2_int_arith          01000101 aa0bbbbb 0cccccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
+sve2_shll               01000101 0a0bbccc 1010deff fffggggg, a:tszh, b:tszl, c:imm3, d:U, e:T, f:Zn, g:Zd
+sve2_add_sub_l          01000101 aa0bbbbb 1000cdee eeefffff, a:size, b:Zm, c:S, d:tb, e:Zn, f:Zd
+sve2_eortb              01000101 aa0bbbbb 10010cdd dddeeeee, a:size, b:Zm, c:tb, d:Zn, e:Zd
+sve_mmla                01000101 aa0bbbbb 100110cc cccddddd, a:uns, b:Zm, c:Zn, d:Zd
+sve2_bitperm            01000101 aa0bbbbb 1011ccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
