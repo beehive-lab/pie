@@ -173,21 +173,22 @@ sve_prop_break          00100101 aa00bbbb 11cccc0d dddeffff, a:opc, b:pm, c:pg, 
 sve_uzp                 00000101 101aaaaa 00001bcc cccddddd, a:zm, b:B, c:zn, d:zd
 sve_trn                 00000101 101aaaaa 00011bcc cccddddd, a:zm, b:B, c:zn, d:zd
 sve_part_break          00100101 aa01bbbb 01cccc0d dddeffff, a:opc, b:opc2, c:pg, d:pn, e:m, f:pd
-sve_ptest               00100101 01010000 11aaaa0b bbb00000, a:pg, b:pn
-sve_pfirst              00100101 01011000 1100000a aaa0bbbb, a:pg, b:pdn
-sve_pfalse              00100101 00011000 11100100 0000aaaa, a:pd
-sve_pnext               00100101 aa011001 1100010b bbb0cccc, a:size, b:pv, c:pdn
-sve_ptrue               00100101 aa01100b 111000cc ccc0dddd, a:size, b:S, c:ptrn, d:pd
-sve_rdffr               00100101 ab011000 1111000c ccc0dddd, a:op, b:S, c:pg, d:pd
-sve_rdffr_unpred        00100101 ab011001 11110000 0000cccc, a:op, b:S, c:pd
-sve_int_cmp_scalar      00100101 aa1bbbbb 00ccccdd dddeffff, a:size, b:Rm, c:opc, d:Rn, e:eq, f:pd
-sve2_broadcast_pred     00100101 aa1bbbcc 01ddddef fff0gggg, a:opc, b:tszl, c:rv, d:pn, e:s, f:pm, g:pd
+sve_ptest               00100101 01010000 11aaaa0b bbb00000, a:Pg, b:Pn
+sve_pfirst              00100101 01011000 1100000a aaa0bbbb, a:Pg, b:Pdn
+sve_pfalse              00100101 00011000 11100100 0000aaaa, a:Pd
+sve_pnext               00100101 aa011001 1100010b bbb0cccc, a:size, b:Pv, c:Pdn
+sve_ptrue               00100101 aa01100b 111000cc ccc0dddd, a:size, b:S, c:Ptrn, d:Pd
+sve_rdffr               00100101 ab011000 1111000c ccc0dddd, a:op, b:S, c:Pg, d:Pd
+sve_rdffr_unpred        00100101 ab011001 11110000 0000cccc, a:op, b:S, c:Pd
+sve_int_cmp_scalar      00100101 aa1bbbbb 00ccccdd dddeffff, a:size, b:Rm, c:opc, d:Rn, e:eq, f:Pd
+sve2_broadcast_pred     00100101 aa1bbbcc 01ddddef fff0gggg, a:opc, b:tszl, c:rv, d:Pn, e:s, f:Pm, g:Pd
 sve2_pext               00100101 aa100000 01110bbb ccc1dddd, a:size, b:opc, c:PNn, d:pd
 sve2_ptrue              00100101 aa100000 01111000 00010bbb, a:size, b:PNd
-sve2_while_pair         00100101 aa1bbbbb 0101cdee eee1fffg, a:size, b:rm, c:U, d:lt, e:Rn, f:Pd, g:eq
+sve2_while_pair         00100101 aa1bbbbb 0101cdee eee1fffg, a:size, b:Rm, c:U, d:lt, e:Rn, f:Pd, g:eq
 sve2_while_cntr         00100101 aa1bbbbb 01c0deff fff1ghhh, a:size, b:Rm, c:vl, d:U, e:lt, f:Rn, g:eq, h:PNd
 sve_int_wide_imm        00100101 aa1bbbbb 11cddddd dddeeeee, a:size, b:opc, c:opc2, d:imm8, e:Zdn
-sve2_pred_cnt           00100101 aa100bbb 10cccccd dddeeeee, a:size, b:opc, c:opc2, d:pnn, e:Rd
-sve_inc_dec_pred_cnt    00100101 aa101bbb 1000cccd dddeeeee, a:size, b:opc, c:opc2, d:pm, e:Zdn
+sve2_pred_cnt           00100101 aa100bbb 10cccccd dddeeeee, a:size, b:opc, c:opc2, d:PNn, e:Rd
+sve_inc_dec_pred_cnt    00100101 aa101bbb 1000cccd dddeeeee, a:size, b:opc, c:opc2, d:Pm, e:Zdn
 sve_wrffr               00100101 00101000 1001000a aaa00000, a:Pn
 sve_setffr              00100101 00101100 10010000 00000000
+sve_int_mult_add_unpred 01000100 aa0bbbbb 0cccccdd dddeeeee, a:sie, b:Zm, c:opc, d:Zn, e:Zda
