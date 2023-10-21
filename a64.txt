@@ -186,3 +186,4 @@ sve2_pext               00100101 aa100000 01110bbb ccc1dddd, a:size, b:opc, c:PN
 sve2_ptrue              00100101 aa100000 01111000 00010bbb, a:size, b:PNd
 sve2_while_pair         00100101 aa1bbbbb 0101cdee eee1fffg, a:size, b:rm, c:U, d:lt, e:Rn, f:Pd, g:eq
 sve2_while_cntr         00100101 aa1bbbbb 01c0deff fff1ghhh, a:size, b:Rm, c:vl, d:U, e:lt, f:Rn, g:eq, h:PNd
+sve_int_wide_imm        00100101 aa1bbbbb 11cddddd dddeeeee, a:size, b:opc, c:opc2, d:imm8, e:Zdn
