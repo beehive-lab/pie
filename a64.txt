@@ -210,3 +210,4 @@ sve2_narrow             01000101 aa1bbbbb 0cccccdd dddeeeee, a:opc, b:opc2, c:op
 sve2_match              01000101 aa1bbbbb 100cccdd dddeffff, a:size, b:Zm, c:pg, d:Zn, e:op, f:pd
 sve2_histseg            01000101 aa1bbbbb 101000cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
 sve2_histcnt            01000101 aa1bbbbb 110cccdd dddeeeee, a:size, b:Zm, c:pg, d:Zn, e:Zd
+sve2_crypto             01000101 aa1bbbbb 111cccdd dddeeeee, a:size, b:opc, c:opc2, d:Zm, e:Zdn
