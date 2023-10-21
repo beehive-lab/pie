@@ -192,3 +192,4 @@ sve_inc_dec_pred_cnt    00100101 aa101bbb 1000cccd dddeeeee, a:size, b:opc, c:op
 sve_wrffr               00100101 00101000 1001000a aaa00000, a:Pn
 sve_setffr              00100101 00101100 10010000 00000000
 sve_int_mult_add_unpred 01000100 aa0bbbbb 0cccccdd dddeeeee, a:sie, b:Zm, c:opc, d:Zn, e:Zda
+sve2_int_pred           01000100 aa0bbbbb 10cdddee eeefffff, a:size, b:opc, c:opc2, d:pg, e:Zn, f:Zda
