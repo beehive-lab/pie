@@ -180,3 +180,4 @@ sve_pnext               00100101 aa011001 1100010b bbb0cccc, a:size, b:pv, c:pdn
 sve_ptrue               00100101 aa01100b 111000cc ccc0dddd, a:size, b:S, c:ptrn, d:pd
 sve_rdffr               00100101 ab011000 1111000c ccc0dddd, a:op, b:S, c:pg, d:pd
 sve_rdffr_unpred        00100101 ab011001 11110000 0000cccc, a:op, b:S, c:pd
+sve_int_cmp_scalar      00100101 aa1bbbbb 00ccccdd dddeffff, a:size, b:Rm, c:opc, d:Rn, e:eq, f:pd
