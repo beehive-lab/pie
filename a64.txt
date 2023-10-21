@@ -181,3 +181,4 @@ sve_ptrue               00100101 aa01100b 111000cc ccc0dddd, a:size, b:S, c:ptrn
 sve_rdffr               00100101 ab011000 1111000c ccc0dddd, a:op, b:S, c:pg, d:pd
 sve_rdffr_unpred        00100101 ab011001 11110000 0000cccc, a:op, b:S, c:pd
 sve_int_cmp_scalar      00100101 aa1bbbbb 00ccccdd dddeffff, a:size, b:Rm, c:opc, d:Rn, e:eq, f:pd
+sve2_broadcast_pred     00100101 aa1bbbcc 01ddddef fff0gggg, a:opc, b:tszl, c:rv, d:pn, e:s, f:pm, g:pd
