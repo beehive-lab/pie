@@ -195,3 +195,4 @@ sve_int_mult_add_unpred 01000100 aa0bbbbb 0cccccdd dddeeeee, a:sie, b:Zm, c:opc,
 sve2_int_pred           01000100 aa0bbbbb 10cdddee eeefffff, a:size, b:opc, c:opc2, d:pg, e:Zn, f:Zda
 sve2_int_clamp          01000100 aa0bbbbb 11000cdd dddeeeee, a:size, b:Zm, c:u, d:Zn, e:Zd
 sve2_mla_cpa            01000100 aa0bbbbb 1101ccdd dddeeeee, a:opc, b:Zm, c:opc2, d:Zn, e:Zda
+sve2_permute_elem_quad  01000100 aa0bbbbb 111cccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
