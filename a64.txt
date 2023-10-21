@@ -205,3 +205,4 @@ sve2_add_sub_l          01000101 aa0bbbbb 1000cdee eeefffff, a:size, b:Zm, c:S, 
 sve2_eortb              01000101 aa0bbbbb 10010cdd dddeeeee, a:size, b:Zm, c:tb, d:Zn, e:Zd
 sve_mmla                01000101 aa0bbbbb 100110cc cccddddd, a:uns, b:Zm, c:Zn, d:Zd
 sve2_bitperm            01000101 aa0bbbbb 1011ccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
+sve2_accum              01000101 aa0bbbbb b11cccdd dddeeeee, a:size, b:opc, c:opc2, d:Zm, e:Zdn
