@@ -206,3 +206,4 @@ sve2_eortb              01000101 aa0bbbbb 10010cdd dddeeeee, a:size, b:Zm, c:tb,
 sve_mmla                01000101 aa0bbbbb 100110cc cccddddd, a:uns, b:Zm, c:Zn, d:Zd
 sve2_bitperm            01000101 aa0bbbbb 1011ccdd dddeeeee, a:size, b:Zm, c:opc, d:Zn, e:Zd
 sve2_accum              01000101 aa0bbbbb b11cccdd dddeeeee, a:size, b:opc, c:opc2, d:Zm, e:Zdn
+sve2_narrow             01000101 aa1bbbbb 0cccccdd dddeeeee, a:opc, b:opc2, c:opc3, d:Zn, e:Zd
