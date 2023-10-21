@@ -189,3 +189,5 @@ sve2_while_cntr         00100101 aa1bbbbb 01c0deff fff1ghhh, a:size, b:Rm, c:vl,
 sve_int_wide_imm        00100101 aa1bbbbb 11cddddd dddeeeee, a:size, b:opc, c:opc2, d:imm8, e:Zdn
 sve2_pred_cnt           00100101 aa100bbb 10cccccd dddeeeee, a:size, b:opc, c:opc2, d:pnn, e:Rd
 sve_inc_dec_pred_cnt    00100101 aa101bbb 1000cccd dddeeeee, a:size, b:opc, c:opc2, d:pm, e:Zdn
+sve_wrffr               00100101 00101000 1001000a aaa00000, a:Pn
+sve_setffr              00100101 00101100 10010000 00000000
