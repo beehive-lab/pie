@@ -193,3 +193,4 @@ sve_wrffr               00100101 00101000 1001000a aaa00000, a:Pn
 sve_setffr              00100101 00101100 10010000 00000000
 sve_int_mult_add_unpred 01000100 aa0bbbbb 0cccccdd dddeeeee, a:sie, b:Zm, c:opc, d:Zn, e:Zda
 sve2_int_pred           01000100 aa0bbbbb 10cdddee eeefffff, a:size, b:opc, c:opc2, d:pg, e:Zn, f:Zda
+sve2_int_clamp          01000100 aa0bbbbb 11000cdd dddeeeee, a:size, b:Zm, c:u, d:Zn, e:Zd
