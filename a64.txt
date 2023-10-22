@@ -241,3 +241,4 @@ sve_fcvt_int            01100101 aa011bbb 101cccdd dddeeeee, a:opc, b:opc2, c:Pg
 sve_reduc               01100101 aa000bbb 001cccdd dddeeeee, a:size, b:opc, c:pg, d:Zn, e:vd
 sve_unary_unpred        01100101 aa001bbb 0011ccdd dddeeeee, a:size, b:opc, c:opc2, d:Zn, e:Zd
 sve_fcmp_zero           01100101 aa010bbb 001cccdd dddeffff, a:size, b:opc, c:pg, d:Zn, e:ne, f:pd
+sve_fadda               01100101 aa011000 001bbbcc cccddddd, a:size, b:Pg, c:Zm, d:Vdn
