@@ -250,3 +250,4 @@ sve_cont_store          1110010a aaaabbbb 0c0dddee eeefffff, a:opc, b:imm4, c:op
 sve_ntmp_quad           1110010a aaabbbbb 001cccdd dddeeeee, a:opc, b:Rm, c:pg, d:Zn, e:Zt
 sve_ntmp_cont           1110010a aaabbbbb 011cccdd dddeeeee, a:opc, b:Rm, c:pg, d:Zn, e:Zt
 sve_scatter_sign        1110010a aaabbbbb 1c0dddee eeefffff, a:opc, b:Zm, c:xs, d:pg, e:Rn, f:Zt
+sve_scatter             1110010a aaabbbbb 101cccdd dddeeeee, a:opc, b:Zm, c:pg, d:Rn, e:Zt
