@@ -243,3 +243,4 @@ sve_unary_unpred        01100101 aa001bbb 0011ccdd dddeeeee, a:size, b:opc, c:op
 sve_fcmp_zero           01100101 aa010bbb 001cccdd dddeffff, a:size, b:opc, c:pg, d:Zn, e:ne, f:pd
 sve_fadda               01100101 aa011000 001bbbcc cccddddd, a:size, b:Pg, c:Zm, d:Vdn
 sve_fnmla_d             01100101 aa1bbbbb cccdddee eeefffff, a:size, b:Zm, c:opc, d:pg, e:Zn, f:Zda
+sve_32_gather           1000010a aaabbbbb cccdddee eeefgggg, a:opc, b:Zm, c:msz, d:pg, e:Rn, f:opc2, g:prfop
