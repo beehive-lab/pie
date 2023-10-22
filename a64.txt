@@ -219,3 +219,4 @@ sve2_frec_quad          01100100 aa010bbb 101cccdd dddeeeee, a:size, b:opc, c:pg
 sve_fmla                01100100 aa1bbbbb 0000ccdd dddeeeee, a:size, b:opc, c:opc2, d:Zn, e:Zda
 sve_fcmla               01100100 aa1bbbbb 0001ccdd dddeeeee, a:size, b:opc, c:rot, d:Zn, e:Zda
 sve_fmul                01100100 aa1bbbbb 0010ccdd dddeeeee, a:size, b:opc, c:opc2, d:Zn, e:Zd
+sve2_fclamp             01100100 aa1bbbbb 001001cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
