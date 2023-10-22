@@ -238,3 +238,4 @@ sve_fcvt                01100101 aa0010bb 101cccdd dddeeeee, a:opc, b:opc2, c:Pg
 sve_frecpx_fsqrt        01100101 aa0011bb 101cccdd dddeeeee, a:size, b:opc, c:Pg, d:Zn, e:Zd
 sve_int_fcvt            01100101 aa010bbb 101cccdd dddeeeee, a:opc, b:opc2, c:Pg, d:Zn, e:Zd
 sve_fcvt_int            01100101 aa011bbb 101cccdd dddeeeee, a:opc, b:opc2, c:Pg, d:Zn, e:Zd
+sve_reduc               01100101 aa000bbb 001cccdd dddeeeee, a:size, b:opc, c:pg, d:Zn, e:vd
