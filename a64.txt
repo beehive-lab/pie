@@ -222,3 +222,4 @@ sve_fmul                01100100 aa1bbbbb 0010ccdd dddeeeee, a:size, b:opc, c:op
 sve2_fclamp             01100100 aa1bbbbb 001001cc cccddddd, a:size, b:Zm, c:Zn, d:Zd
 sve_wide_fmla_index     01100100 aa1bbccc 01d0eeff fffggggg, a:opc, b:imm, c:Zm, d:opc2, e:opc3, f:Zn, g:Zda
 sve_wide_fmla           01100100 aa1bbbbb 10c00dee eeefffff, a:opc, b:Zm, c:opc2, d:opc3, e:Zn, f:Zda
+sve2_fp8_mla_index      01100100 aa1bbccc 1100ddee eeefffff, a:TT, b:i4h, c:Zm, d:i4l, e:Zn, f:Zda
